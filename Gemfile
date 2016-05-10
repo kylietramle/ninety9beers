@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 # Dotenv for API and AWS
 gem 'dotenv-rails', :groups => [:development, :test]
+# BreweryDB Gem
+gem 'brewery_db'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use postgresql as the database for Active Record

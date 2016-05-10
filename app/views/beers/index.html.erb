@@ -1,1 +1,16 @@
-<h1><%= @secret %></h1>
+<h1>Beers Index Page</h1>
+
+<%= @beers.each do |beer| %>
+  <li>Name: <%= beer.name_display %></li>
+<% end %>
+
+<%= form_tag '/beers/search', method: :post do %>
+  <div>
+    <%= label_tag :beer_search, "Search Bar" %>
+    <%= text_field_tag :beer_search %>
+  </div>
+  <div>
+    <%= submit_tag "Search" %>
+  </div>
+<% end %>
+

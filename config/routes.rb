@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  resources :beers
   root to: 'beers#index'
-  get '/beers', to: 'beers#index'
+  post "/beers/search" => "beers#search"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
