@@ -1,7 +1,8 @@
 class BeersController < ApplicationController
+
   def index
     brewery_db = Beer.api_call
-    @beers = brewery_db.search.beers(q: 'IPA').limit(10)
+    @beers = brewery_db.beers
   end
 
   def show
@@ -9,13 +10,29 @@ class BeersController < ApplicationController
     @beer = brewery_db.beers.find(params[:id])
   end
 
-  def create
-  end
-
   def search
     brewery_db = Beer.api_call
     searched_beer = params[:beer_search]
-    @beers = brewery_db.search.all(q: searched_beer)
-    puts @beers
+    page = params[:page] || 1
+    per_page = 20
+  
+    results = brewery_db.search.beers(q: searched_beer)
+    count = results.count
+
+    @beers = Kaminari.paginate_array(results.take(per_page), total_count: count).page(page)
+  end
+
+  def create
+    puts '$' * 500
+    if params[:tap] = "Tap"
+      tap_param = true
+    else
+      tap_param = false
+    end
+    
+    @beer = Beer.new(api_id: params[:api_id], user_id: current_user.id, rank: params[:rank], tap: tap_param)
+    @beer.save
+
+    redirect_to "/users/#{current_user.id}"
   end
 end

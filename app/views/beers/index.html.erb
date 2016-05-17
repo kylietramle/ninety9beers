@@ -1,9 +1,3 @@
-<h1>Beers Index Page</h1>
-
-<%= @beers.each do |beer| %>
-  <li>Name: <%= beer.name_display %></li>
-<% end %>
-
 <%= form_tag '/beers/search', method: :post do %>
   <div>
     <%= label_tag :beer_search, "Search Bar" %>

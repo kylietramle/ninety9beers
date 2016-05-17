@@ -1,0 +1,13 @@
+<h1> User Show Page</h1>
+
+<% number_beers = @user.beers.count - 1 %>
+
+<p>User Name: <%= current_user.email %></p>
+<p>Beers Drank: <%= @user.beers.count %></p>
+<p>Top 5 Beers: </p>
+
+
+<% (0..number_beers).each do |count| %>
+  <% api_id = @user.beers[count].api_id %>
+  <%= @brewery_db.beers.find(api_id).name_display %>
+<% end %>
