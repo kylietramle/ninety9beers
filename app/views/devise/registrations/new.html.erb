@@ -24,7 +24,7 @@
 
   <div class="field">
     <%= f.label :birthdate %><br />
-    <%= f.text_field :birthdate, autofocus: true %>
+    <%= f.date_select :birthdate, {order: [:month, :day, :year], prompt: { day: 'Select day', month: 'Select month', year: 'Select year' }, start_year: Date.today.year - 21, end_year: Date.today.year - 80} %>
   </div>
 
   <div class="field">

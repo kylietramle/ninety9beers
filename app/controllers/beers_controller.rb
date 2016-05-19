@@ -1,13 +1,12 @@
 class BeersController < ApplicationController
 
   def index
-    brewery_db = Beer.api_call
-    @beers = brewery_db.beers
   end
 
   def show
     brewery_db = Beer.api_call
     @beer = brewery_db.beers.find(params[:id])
+    @user_beer = current_user.beers.find_by(api_id: params[:id])
   end
 
   def search
@@ -23,7 +22,6 @@ class BeersController < ApplicationController
   end
 
   def create
-    puts '$' * 500
     if params[:tap] = "Tap"
       tap_param = true
     else
