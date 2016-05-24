@@ -5,7 +5,7 @@ class BeersController < ApplicationController
   def show
     if Beer.find_by(beer_id: params[:id])
       @type = "userbeer"
-      @beer = Beer.find_by(beer_id: params[:id])
+      @beer = UserBeer.find_by(id: params[:id])
        if current_user
         @user_beer = current_user.beers.find_by(beer_id: params[:id])
       end
@@ -47,7 +47,7 @@ class BeersController < ApplicationController
     @beer = Beer.new(beer_id: @user_beer.id, user_id: current_user.id, rank: params[:rank], tap: params[:tap])
     @beer.save
 
-    redirect_to "/beers/#{@user_beer.id}"
+    redirect_to "/users/#{current_user.id}"
   end
 
 end
