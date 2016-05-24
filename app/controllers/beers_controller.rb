@@ -1,12 +1,23 @@
 class BeersController < ApplicationController
-
   def index
   end
 
   def show
-    brewery_db = Beer.api_call
-    @beer = brewery_db.beers.find(params[:id])
-    @user_beer = current_user.beers.find_by(api_id: params[:id])
+    if Beer.find_by(beer_id: params[:id])
+      @type = "userbeer"
+      @beer = Beer.find_by(beer_id: params[:id])
+       if current_user
+        @user_beer = current_user.beers.find_by(beer_id: params[:id])
+      end
+   else 
+      @type = "apibeer"
+      brewery_db = Beer.api_call
+      @beer = brewery_db.beers.find(params[:id])
+      if current_user
+        @user_beer = current_user.beers.find_by(api_id: params[:id])
+      end
+    end
+
   end
 
   def search
@@ -22,15 +33,21 @@ class BeersController < ApplicationController
   end
 
   def create
-    if params[:tap] = "Tap"
-      tap_param = true
-    else
-      tap_param = false
-    end
-    
+    params[:tap] = "Tap" ? tap_param = true : tap_param = false 
     @beer = Beer.new(api_id: params[:api_id], user_id: current_user.id, rank: params[:rank], tap: tap_param)
     @beer.save
 
     redirect_to "/users/#{current_user.id}"
   end
+
+  def create_unique
+    @user_beer = UserBeer.new(name: params[:name], style: params[:style], abv: params[:abv], ibu: params[:ibu], description: params[:description])
+    @user_beer.save
+
+    @beer = Beer.new(beer_id: @user_beer.id, user_id: current_user.id, rank: params[:rank], tap: params[:tap])
+    @beer.save
+
+    redirect_to "/beers/#{@user_beer.id}"
+  end
+
 end

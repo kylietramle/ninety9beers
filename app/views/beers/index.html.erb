@@ -1,5 +1,7 @@
+<h1>Welcome Page</h1>
+
 <%= form_tag '/beers/search', method: :post do %>
-  <div>
+    <div>
     <%= label_tag :beer_search, "Search Bar" %>
     <%= text_field_tag :beer_search %>
   </div>
@@ -7,4 +9,8 @@
     <%= submit_tag "Search" %>
   </div>
 <% end %>
+
+<p>Sign Up or Sign In</p>
+<p>Create a Profile</p>
+<p>Build Own Beer Trophy Page</p>
 

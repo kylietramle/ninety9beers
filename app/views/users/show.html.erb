@@ -8,5 +8,5 @@
 
 <p>Beers <%= current_user.first_name %> Drank</p>
 <% @user.drank_list.each do |beer| %>
-  <%= link_to beer.name_display, "/beers/#{beer.id}" %>
+  <%= link_to beer.name, "/beers/#{beer.id}" %>
 <% end %>

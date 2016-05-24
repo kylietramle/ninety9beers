@@ -1,45 +1,67 @@
 <h1>Beers Show Page</h1>
-<table>
-  <tr>
-    <th>Beer Name</th>
-    <th>Style</th>
-    <th>ABV Max</th>
-    <th>ABV Min</th>
-    <th>IBU Max</th>
-    <th>IBU Min</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td><%= @beer.name_display %></td>
-    <td><%= @beer.style.name %></td>
-    <td><%= @beer.style.abv_max %></td>
-    <td><%= @beer.style.abv_min %></td>
-    <td><%= @beer.style.ibu_max %></td>
-    <td><%= @beer.style.ibu_min %></td>
-    <td><%= @beer.style.description %></td>
-  </tr>
-</table>
+
+<% if @type == "userbeer" %>
+  <table>
+    <tr>
+      <th>Beer Name</th>
+      <th>Style</th>
+      <th>ABV</th>
+      <th>IBU</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td><%= @beer.name %></td>
+      <td><%= @beer.style %></td>
+      <td><%= @beer.abv %></td>
+      <td><%= @beer.ibu %></td>
+      <td><%= @beer.description %></td>
+    </tr>
+  </table>
+<% else %>
+  <table>
+    <tr>
+      <th>Beer Name</th>
+      <th>Style</th>
+      <th>ABV</th>
+      <th>IBU</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td><%= @beer.name_display %></td>
+      <td><%= @beer.style.name %></td>
+      <td><%= @beer.style.abv_max %></td>
+      <td><%= @beer.style.ibu_max %></td>
+      <td><%= @beer.style.description %></td>
+    </tr>
+  </table>
+<% end %>
+
 
 <% if current_user && current_user.drank_list.include?(@beer) %>
-  <p>Rank: <%= @user_beer.rank %></p>
-  <p>Tapped? <%= @user_beer.tap_convert %></p>
-<% else %>
+  <p>My Ranking: <%= @beer.rank %></p>
+  <p>Tap/Bottled: <%= @beer.tap_convert %></p>
+  <p>Location Drank: </p>
+<% elsif current_user %>
   <h2>Add Beer</h2>
     <%= form_tag '/beers', method: :post do%>
-    <div>
-      <%= label_tag :rank %>
-      <%= text_field_tag :rank%>
-    </div>
-    <div>
-      <%= label_tag :tap %>
-      <%= select_tag(:tap, options_for_select(['Tap', 'Bottle'])) %>
-    </div>
-      <%= hidden_field_tag(:user_id, current_user.id) %>
-      <%= hidden_field_tag(:api_id, params[:id]) %>
-   <div>
-      <%= submit_tag "I Drank This!" %>
-    </div>
+      <div>
+        <%= label_tag :rank %>
+        <%= text_field_tag :rank%>
+      </div>
+      <div>
+        <%= label_tag :tap %>
+        <%= select_tag(:tap, options_for_select(['Tap', 'Bottle'])) %>
+      </div>
+        <%= hidden_field_tag(:user_id, current_user.id) %>
+        <%= hidden_field_tag(:api_id, params[:id]) %>
+     <div>
+        <%= submit_tag "I Drank This!" %>
+      </div>
     <% end %>
+
+    <%= button_to "Add Your Own Beer", "/beers/new", :method => "get" %>
+<% else %>
+  <p>Please sign up to add beers!</p>
 <% end %>
 
 

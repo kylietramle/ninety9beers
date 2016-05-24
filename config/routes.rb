@@ -5,9 +5,13 @@ Rails.application.routes.draw do
   post '/beers' => 'beers#create'
   get '/beers/search' => 'beers#search'
   post '/beers/search' => 'beers#search'
+  post '/beers/unique' => 'beers#create_unique'
+  get '/beers/new' => 'beers#new'
   get '/beers/:id' => 'beers#show'
 
   get '/users/:id' => 'users#show'
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -3,9 +3,9 @@ class CreateBeers < ActiveRecord::Migration
     create_table :beers do |t|
       t.string :name
       t.string :style
-      t.decimal :abv, precision: 3, scale: 1
+      t.integer :abv
       t.integer :ibu
-      t.boolean :tap
+      t.text :description
 
       t.timestamps null: true
     end
