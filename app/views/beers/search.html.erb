@@ -1,11 +1,10 @@
-<%= paginate @beers %>
 <table>
   <tr>
     <th>Beer Name</th>
   </tr>
   <tr>
-   <% @beers.each do |beer| %> 
-    <td><%= link_to beer.name_display, "/beers/#{beer.id}" %></td>
+   <% @beers.beers.items.each do |beer| %> 
+    <td><%= link_to beer.beer.beer_name, "/beers/#{beer.beer.bid}" %></td>
   </tr>
     <% end %>
 </table>

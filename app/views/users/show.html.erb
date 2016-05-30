@@ -1,6 +1,5 @@
 <h1> User Show Page</h1>
 
-<% brewery_db = Beer.api_call %>
 <% number_beers = @user.beers.count - 1 %>
 
 <p>User Name: <%= @user.email %></p>
@@ -9,14 +8,14 @@
 
 <p>Beers <%= current_user.first_name %> Drank</p>
 
-<% @user.drank_list.each do |beer| %>
-  <% if beer.beer_id %>
-    <% id = beer.beer_id %>
-    <% user_beer = UserBeer.find_by(id: id) %>
-    <%= user_beer.name %>
+<% @user.beers.each do |beer| %>
+  <% if beer.custom_beer_id %>
+    <% id = beer.custom_beer_id %>
+    <% custom_beer = beer.custom_beer %>
+    <%= link_to custom_beer.name, "/custom_beers/#{beer.id}" %>
   <% else %>
     <% id = beer.api_id %>
-    <% api_beer = brewery_db.beers.find(id) %>
-    <%= api_beer.name_display %>
+    <% api_beer = Untappd::Beer.info(id) %>
+    <%= link_to api_beer.beer.beer_name, "/beers/#{beer.api_id}" %>
   <% end %>
 <% end %>

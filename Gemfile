@@ -1,9 +1,7 @@
 source 'https://rubygems.org'
-
+gem 'untappd'
 # Dotenv for API and AWS
 gem 'dotenv-rails', :groups => [:development, :test]
-# BreweryDB Gem
-gem 'brewery_db'
 # Kaminari for pagination
 gem 'kaminari'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -41,6 +39,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'pry'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :development do

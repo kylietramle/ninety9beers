@@ -1,9 +1,6 @@
 class Beer < ActiveRecord::Base
+  belongs_to :custom_beer
   belongs_to :user
-  
-  def self.api_call
-    BreweryDB::Client.new { |config| config.api_key = ENV['API_KEY'] }
-  end
 
   def tap_convert
     if tap
@@ -12,4 +9,14 @@ class Beer < ActiveRecord::Base
       "Bottled"
     end
   end
+
+
+  def get_url
+    if self.api_id
+      return "/beers/#{self.api_id}"
+    else
+      return "/beers/custom/#{self.id}"
+    end
+  end
+
 end

@@ -5,9 +5,17 @@ Rails.application.routes.draw do
   post '/beers' => 'beers#create'
   get '/beers/search' => 'beers#search'
   post '/beers/search' => 'beers#search'
-  post '/beers/unique' => 'beers#create_unique'
-  get '/beers/new' => 'beers#new'
   get '/beers/:id' => 'beers#show'
+  get '/beers/:id/edit' => 'beers#edit'
+  patch '/beers/:id' => 'beers#update'
+  delete '/beers/:id' => 'beers#destroy'
+  
+
+  
+  get '/custom_beers/new' => 'custom_beers#new'
+  get '/custom_beers/:id' => 'custom_beers#show'
+  post '/custom_beers' => 'custom_beers#create'
+ 
 
   get '/users/:id' => 'users#show'
 
