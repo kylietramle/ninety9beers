@@ -1,35 +1,38 @@
 <h1>Edit Custom Beer</h1>
 
-<%= form_tag '/custom_beers/#{@custom_beer.id}', method: :patch do%>
+<%= form_tag "/custom_beers/#{@custom_beer.id}", method: :patch do %>
     <div>
       <%= label_tag :name %>
-      <%= text_field_tag :name %>
+      <%= text_field_tag :name, @custom_beer.name %>
     </div>
     <div>
       <%= label_tag :style %>
-      <%= text_field_tag :style %>
+      <%= text_field_tag :style, @custom_beer.style %>
     </div>
     <div>
       <%= label_tag :abv %>
-      <%= text_field_tag :abv %>
+      <%= text_field_tag :abv, @custom_beer.abv %>
     </div>
     <div>
       <%= label_tag :ibu %>
-      <%= text_field_tag :ibu %>
+      <%= text_field_tag :ibu, @custom_beer.ibu %>
     </div>
     <div>
+      <%= label_tag :brewery %>
+      <%= text_field_tag :brewery, @custom_beer.brewery %>
+    </div>
       <%= label_tag :description %>
-      <%= text_field_tag :description %>
+      <%= text_field_tag :description, @custom_beer.description %>
     </div>
     <div>
       <%= label_tag :rank %>
-      <%= text_field_tag :rank%>
+      <%= text_field_tag :rank, @general_beer.rank %>
     </div>
     <div>
       <%= label_tag :tap %>
       <%= select_tag(:tap, options_for_select(['Tap', 'Bottle'])) %>
     </div>
     <div>
-      <%= submit_tag "Add to Trophy Wall" %>
+      <%= submit_tag "Edit My Beer" %>
     </div>
 <% end %>

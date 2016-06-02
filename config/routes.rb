@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  
   root to: 'beers#index'
   get '/beers' => 'beers#index'
   post '/beers' => 'beers#create'
@@ -11,14 +12,15 @@ Rails.application.routes.draw do
   delete '/beers/:id' => 'beers#destroy'
   
 
-  
-  get '/custom_beers/new' => 'custom_beers#new'
+  patch "/custom_beers/:id" => "custom_beers#update"
+  get "/custom_beers/new" => "custom_beers#new"
   get '/custom_beers/:id' => 'custom_beers#show'
   post '/custom_beers' => 'custom_beers#create'
+  get '/custom_beers/:id/edit' => 'custom_beers#edit'
+  delete '/custom_beers/:id' => 'custom_beers#destroy'
  
 
   get '/users/:id' => 'users#show'
-
 
 
   # The priority is based upon order of creation: first created -> highest priority.

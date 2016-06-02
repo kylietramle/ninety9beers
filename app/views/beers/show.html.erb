@@ -29,7 +29,7 @@
     </div>
 <% elsif current_user %>
   <h2>Add Beer</h2>
-    <%= form_tag '/beers', method: :post do%>
+    <%= form_tag "/beers", method: :post do%>
       <div>
         <%= label_tag :rank %>
         <%= text_field_tag :rank%>
@@ -43,8 +43,7 @@
         <%= submit_tag "I Drank This!" %>
       </div>
     <% end %>
-
-    <%= button_to "Add Your Own Beer", "/beers/new", :method => "get" %>
+    <%= button_to "Add Your Own Beer", "/custom_beers/new", :method => "get" %>
 <% else %>
   <p>Please sign up to add beers!</p>
 <% end %>

@@ -1,6 +1,6 @@
 <h1>Add New Beer</h1>
 
-<%= form_tag '/custom_beers', method: :post do%>
+<%= form_tag "/custom_beers", method: :post do%>
     <div>
       <%= label_tag :name %>
       <%= text_field_tag :name %>
@@ -18,6 +18,10 @@
       <%= text_field_tag :ibu %>
     </div>
     <div>
+      <%= label_tag :brewery %>
+      <%= text_field_tag :brewery %>
+    </div>
+    <div>
       <%= label_tag :description %>
       <%= text_field_tag :description %>
     </div>
@@ -27,7 +31,7 @@
     </div>
     <div>
       <%= label_tag :tap %>
-      <%= select_tag(:tap, options_for_select(['Tap', 'Bottle'])) %>
+      <%= select_tag(:tap, options_for_select(['Tap', 'Bottled'])) %>
     </div>
     <div>
       <%= submit_tag "Add to Trophy Wall" %>

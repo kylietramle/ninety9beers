@@ -13,16 +13,17 @@
     <td><%= @custom_beer.style %></td>
     <td><%= @custom_beer.abv %></td>
     <td><%= @custom_beer.ibu %></td>
+    <td><%= @custom_beer.brewery %></td>
     <td><%= @custom_beer.description %></td>
   </tr>
 </table>
 
-<% if current_user && current_user.beers.include?(@api_beer) %>
-  <p>My Ranking: <%= @api_beer.rank %></p>
-  <p>Tap/Bottled: <%= @api_beer.tap_convert %></p>
+<% if current_user && current_user.beers.include?(@general_beer) %>
+  <p>My Ranking: <%= @general_beer.rank %></p>
+  <p>Tap/Bottled: <%= @general_beer.tap_convert %></p>
   <p>Location Drank: </p>
     <div>
-      <%= link_to "Edit Beer", "/beers/#{@api_beer.id}/edit" %>
-      <%= link_to "Delete Beer", "/beers/#{@api_beer.id}", method: :delete, data: {confirm: "Are you sure?"}  %>
+      <%= link_to "Edit Beer", "/custom_beers/#{@custom_beer.id}/edit" %>
+      <%= link_to "Delete Beer", "/custom_beers/#{@custom_beer.id}", method: :delete, data: {confirm: "Are you sure?"}  %>
     </div>
 <% end %>

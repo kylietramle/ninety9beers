@@ -10,9 +10,8 @@
 
 <% @user.beers.each do |beer| %>
   <% if beer.custom_beer_id %>
-    <% id = beer.custom_beer_id %>
     <% custom_beer = beer.custom_beer %>
-    <%= link_to custom_beer.name, "/custom_beers/#{beer.id}" %>
+    <%= link_to custom_beer.name, "/custom_beers/#{beer.custom_beer_id}" %>
   <% else %>
     <% id = beer.api_id %>
     <% api_beer = Untappd::Beer.info(id) %>
