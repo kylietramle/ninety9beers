@@ -1,9 +1,13 @@
 <h1>Edit Custom Beer</h1>
 
-<%= form_tag "/custom_beers/#{@custom_beer.id}", method: :patch do %>
+<%= form_tag "/custom_beers/#{@custom_beer.id}", multipart: true, method: :patch do %>
     <div>
       <%= label_tag :name %>
       <%= text_field_tag :name, @custom_beer.name %>
+    </div>
+    <div>
+      <%= label_tag :image %><br>
+      <%= file_field_tag :image %>
     </div>
     <div>
       <%= label_tag :style %>

@@ -9,12 +9,18 @@
 <p>Beers <%= current_user.first_name %> Drank</p>
 
 <% @user.beers.each do |beer| %>
+<ul>
   <% if beer.custom_beer_id %>
-    <% custom_beer = beer.custom_beer %>
-    <%= link_to custom_beer.name, "/custom_beers/#{beer.custom_beer_id}" %>
+   <% custom_beer = beer.custom_beer %>
+   <li><%= link_to custom_beer.name, "/custom_beers/#{beer.custom_beer_id}" %></li>
+   <li><%= beer.rank %></li>
+   <li><%= image_tag custom_beer.image_url(:preview).to_s %></li>
   <% else %>
     <% id = beer.api_id %>
     <% api_beer = Untappd::Beer.info(id) %>
-    <%= link_to api_beer.beer.beer_name, "/beers/#{beer.api_id}" %>
+    <li><%= link_to api_beer.beer.beer_name, "/beers/#{beer.api_id}" %></li>
+    <li><%= beer.rank %></li>
+    <li><%= image_tag beer.image_url(:preview).to_s %></li>
   <% end %>
+</ul>
 <% end %>

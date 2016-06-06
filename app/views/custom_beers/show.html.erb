@@ -22,6 +22,9 @@
   <p>My Ranking: <%= @general_beer.rank %></p>
   <p>Tap/Bottled: <%= @general_beer.tap_convert %></p>
   <p>Location Drank: </p>
+   <p>My Image:
+    <%= image_tag @general_beer.image_url(:preview).to_s %>
+  </p>
     <div>
       <%= link_to "Edit Beer", "/custom_beers/#{@custom_beer.id}/edit" %>
       <%= link_to "Delete Beer", "/custom_beers/#{@custom_beer.id}", method: :delete, data: {confirm: "Are you sure?"}  %>

@@ -23,7 +23,7 @@ class BeersController < ApplicationController
 
   def create
     params[:tap] == "Tap" ? tap_param = true : tap_param = false 
-    @beer = Beer.new(api_id: params[:api_id], user_id: current_user.id, rank: params[:rank], tap: tap_param)
+    @beer = Beer.new(api_id: params[:api_id], user_id: current_user.id, rank: params[:rank], tap: tap_param, image: params[:image])
     @beer.save
 
     redirect_to "/users/#{current_user.id}"
@@ -36,7 +36,7 @@ class BeersController < ApplicationController
   def update
      @beer = Beer.find(params[:id])
      params[:tap] == "Tap" ? tap_param = true : tap_param = false 
-     @beer.update(rank: params[:rank], tap: tap_param)
+     @beer.update(rank: params[:rank], tap: tap_param, image: params[:image])
 
      redirect_to "/beers/#{@beer.api_id}"
   end

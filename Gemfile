@@ -1,4 +1,7 @@
 source 'https://rubygems.org'
+gem 'carrierwave'
+gem'fog'
+gem "mini_magick"
 gem 'untappd'
 # Dotenv for API and AWS
 gem 'dotenv-rails', :groups => [:development, :test]

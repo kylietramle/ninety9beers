@@ -1,6 +1,6 @@
 <h1>Edit API Beer</h1>
 
-<%= form_tag "/beers/#{@beer.id}", method: :patch do %>
+<%= form_tag "/beers/#{@beer.id}", multipart: true, method: :patch do %>
   <div>
     <%= label_tag :rank %>
     <%= text_field_tag :rank, @beer.rank %>
@@ -8,6 +8,10 @@
   <div>
     <%= label_tag :tap %>
     <%= select_tag(:tap, options_for_select(['Tap', 'Bottled'])) %>
+  </div>
+  <div>
+    <%= label_tag :image %><br>
+    <%= file_field_tag :image %>
   </div>
   <div>
     <%= submit_tag 'Edit My Beer' %>

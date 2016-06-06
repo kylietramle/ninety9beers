@@ -1,6 +1,7 @@
 class Beer < ActiveRecord::Base
   belongs_to :custom_beer
   belongs_to :user
+  mount_uploader :image, BeerImageUploader
 
   def tap_convert
     if tap
