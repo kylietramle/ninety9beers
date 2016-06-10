@@ -1,4 +1,8 @@
 source 'https://rubygems.org'
+
+gem "font-awesome-rails"
+gem 'public_activity'
+
 gem 'carrierwave'
 gem'fog'
 gem "mini_magick"

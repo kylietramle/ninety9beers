@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  
   has_many :beers
   mount_uploader :image, AvatarUploader
   # Include default devise modules. Others available are:

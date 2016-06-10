@@ -1,13 +1,14 @@
-<table>
-  <tr>
-    <th>Beer Name</th>
-  </tr>
-  <tr>
-   <% @beers.beers.items.each do |beer| %> 
-    <td><%= link_to beer.beer.beer_name, "/beers/#{beer.beer.bid}" %></td>
-  </tr>
-    <% end %>
-</table>
-
+<div class="container spacer about">
+  <table>
+    <tr>
+      <th>Beer Name</th>
+    </tr>
+    <tr>
+     <% @beers.beers.items.each do |beer| %> 
+      <td><%= link_to beer.beer.beer_name, "/beers/#{beer.beer.bid}" %></td>
+    </tr>
+      <% end %>
+  </table>
+</div>
 
 

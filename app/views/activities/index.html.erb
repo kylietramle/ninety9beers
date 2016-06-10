@@ -1,0 +1,57 @@
+<!-- Cirlce Starts -->
+<div id="about"  class="container spacer about">
+<h2 class="text-center wowload fadeInUp">Creative photographers of London</h2>  
+  <div class="row">
+  <div class="col-sm-6 wowload fadeInLeft">
+    <h4><i class="fa fa-camera-retro"></i> Introduction </h4>
+    <p>Creative digital agency for sleek and sophisticated solutions for mobile, websites and software designs, lead by passionate and uber progressive team that lives and breathes design. Creative digital agency for sleek and sophisticated solutions for mobile, websites and software designs.</p>
+    
+  
+  </div>
+  <div class="col-sm-6 wowload fadeInRight">
+  <h4><i class="fa fa-coffee"></i> Passion</h4>
+  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>    
+  </div>
+  </div>
+
+
+  <h2>Friend's Activities</h2>
+  <% @activities.each do |activity| %>
+    <div class="activity">
+      <%= link_to activity.owner.first_name, activity.owner %>
+      <% if activity.trackable_type == "CustomBeer" %>
+        <% id = activity.trackable.id %>
+        <% custom_beer = CustomBeer.find_by(id: id) %>
+        added a <%= link_to custom_beer.name, "/custom_beers/#{id}" %>
+      <% else %>
+        <% id = activity.trackable.api_id %>
+        <% api_beer = Untappd::Beer.info(id) %>
+        added a <%= link_to api_beer.beer.beer_name, "/beers/#{id}" %>
+      <% end %>
+    </div>
+
+  <% end %>
+
+  <div class="services">
+  <h3 class="text-center wowload fadeInUp">Services</h3>
+  <ul class="row text-center list-inline  wowload bounceInUp">
+      <li>
+            <span><i class="fa fa-camera-retro"></i><b>Photography</b></span>
+        </li>
+        <li>
+            <span><i class="fa fa-cube"></i><b>Studio</b></span>
+        </li>
+        <li>
+            <span><i class="fa fa-graduation-cap"></i><b>Trainings</b></span>
+        </li>
+        <li>
+            <span><i class="fa fa-umbrella"></i><b>Travel</b></span>
+        </li>        
+        <li>
+            <span><i class="fa fa-heart-o"></i><b>Wedding</b></span>
+        </li>
+    </ul>
+  </div>
+</div>
+<!-- #Cirlce Ends -->
+

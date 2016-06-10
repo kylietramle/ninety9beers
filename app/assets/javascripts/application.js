@@ -12,5 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require wow.min
+//= require bootstrap
+//= require touchSwipe.min
+//= require respond
+//= require jquery.blueimp-gallery.min
 //= require turbolinks
 //= require_tree .

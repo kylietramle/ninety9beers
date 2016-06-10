@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :activities
   
   root to: 'beers#index'
   get '/beers' => 'beers#index'
@@ -20,7 +21,7 @@ Rails.application.routes.draw do
   delete '/custom_beers/:id' => 'custom_beers#destroy'
  
 
-  get '/users/:id' => 'users#show'
+  resources :users
 
 
   # The priority is based upon order of creation: first created -> highest priority.
