@@ -20,3 +20,7 @@
  *= require_tree .
  *= require_self
  */
+
+ .navbar .profile-image{
+    margin: -10px 0px;
+}

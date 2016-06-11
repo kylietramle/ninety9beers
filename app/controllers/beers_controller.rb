@@ -24,9 +24,14 @@ class BeersController < ApplicationController
   def create
     params[:tap] == "Tap" ? tap_param = true : tap_param = false 
     @beer = Beer.new(api_id: params[:api_id], user_id: current_user.id, rank: params[:rank], tap: tap_param, image: params[:image])
-    @beer.save
-
-    redirect_to "/users/#{current_user.id}"
+    
+    if @beer.save
+      flash[:success] = 'The beer was added to Beer Rack!'
+      @beer.create_activity :create, owner: current_user
+      redirect_to "/users/#{current_user.id}"
+    else
+      redirect_to "/beers/#{params[:api_id]}"
+    end 
   end
 
   def edit
@@ -36,14 +41,23 @@ class BeersController < ApplicationController
   def update
      @beer = Beer.find(params[:id])
      params[:tap] == "Tap" ? tap_param = true : tap_param = false 
-     @beer.update(rank: params[:rank], tap: tap_param, image: params[:image])
-
-     redirect_to "/beers/#{@beer.api_id}"
+     if @beer.update(rank: params[:rank], tap: tap_param, image: params[:image])
+      flash[:success] = 'The beer was edited!'
+      @beer.create_activity :update, owner: current_user
+      redirect_to "/beers/#{@beer.api_id}"
+    else
+      redirect_to "/beers/edit"
+    end
+     
   end
 
   def destroy
     @beer = Beer.find(params[:id])
-    @beer.destroy
+    if @beer.destroy
+      flash[:success] = 'The beer was deleted!'
+    else
+      flash[:error] = 'An error occurred. Try deleting the beer again.'
+    end
 
     redirect_to "/users/#{current_user.id}"
   end

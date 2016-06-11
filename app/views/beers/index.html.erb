@@ -17,9 +17,9 @@
   </div>
   </div>
   
-  <%= form_tag '/beers/search', method: :post do %>
-    <div>
-    <%= label_tag :beer_search, "Search Bar" %>
+  <%= form_tag '/beers/search', method: :post, :class => "form-inline" do %>
+    <div class="input-group"
+    <%= label_tag :beer_search %>
     <%= text_field_tag :beer_search %>
   </div>
   <div>

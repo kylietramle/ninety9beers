@@ -1,0 +1,7 @@
+<% if activity.trackable && activity.trackable_type == "CustomBeer" %>
+  <% id = activity.trackable.id %>
+  <% custom_beer = CustomBeer.find_by(id: id) %>
+  added <%= link_to custom_beer.name, "/custom_beers/#{id}" %> to the Beer Rack!
+<% else %>
+  removed one of the beer.
+<% end %>

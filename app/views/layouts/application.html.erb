@@ -9,65 +9,63 @@
 <body>
   <div class="topbar animated fadeInLeftBig"></div>
 
-  <!-- Header Starts -->
-  <div class="navbar-wrapper">
-        <div class="container">
+    <!-- Header Starts -->
+    <div class="navbar-wrapper">
+      <div class="container">
 
-          <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="top-nav">
-            <div class="container">
-              <div class="navbar-header">
-                <!-- Logo Starts -->
-                <a class="navbar-brand" href="#home"><%= image_tag "logo.png" %></a>
-                <!-- #Logo Ends -->
-
-
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
-
-              </div>
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="top-nav">
+          <div class="container">
+            <div class="navbar-header">
+              <!-- Logo Starts -->
+              <a class="navbar-brand" href="#home"><%= image_tag "logo.png" %></a>
+              <!-- #Logo Ends -->
 
 
-              <!-- Nav Starts -->
-              <div class="navbar-collapse  collapse">
-                <ul class="nav navbar-nav navbar-right scroll">
-                     <li class="active"><%= link_to 'Home', '/beers' %></li>
-                     <% if user_signed_in? %>
-                       <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
-                       <li ><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-                       <li ><%= link_to "Trophy Page", "/users/#{current_user.id}" %></li>
-                     <% else %>
-
-                       <li ><a href="#contact">Contact</a></li>
-                      <% end %>
-                </ul>
-              </div>
-              
-              <!-- Kylie's Code -->
-              <% if user_signed_in? %>
-                Logged in as <strong><%= current_user.email %></strong>
-                <%= link_to 'Home', '/beers' %> |
-                <%= link_to 'Edit Profile', edit_user_registration_path, :class => 'navbar-link' %> |
-                <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %> |
-                <%= link_to "Trophy Page", "/users/#{current_user.id}" %>
-              <% else %>
-                <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-                <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-              <% end %>
-              
-              <!-- #Nav Ends -->
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
 
             </div>
+
+
+            <!-- Nav Starts -->
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-right scroll">
+                  <% if user_signed_in? %>
+                  <li class="active"><%= link_to 'Home', '/beers' %></li>
+                  <li><%= link_to "News Feed", activities_path %></li>
+                  <li><%= link_to "Beer Rack", "/users/#{current_user.id}" %></li>
+                   <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
+                   <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+                   <li><%= image_tag current_user.image_url(:thumb).to_s, class: "profile-image" %></li>
+                  <% else %>
+                    <li><%= link_to "Sign up", new_user_registration_path %></li>
+                    <li><%= link_to "Login", new_user_session_path %></li>
+                  <% end %>
+              </ul>
+            </div> 
+
           </div>
-
         </div>
-      </div>
-  <!-- #Header Starts -->
 
-  <%= yield %>
+      </div>
+    </div>
+    <!-- #Header Starts -->
+  <div class="container">
+    <div class="page-header">
+      <h1><%= yield :page_header %></h1>
+    </div>
+
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>">
+        <%= value %>
+      </div>
+    <% end %>
+    <%= yield %>
+  </div>
 
   <!-- Footer Starts -->
   <div class="footer text-center spacer">

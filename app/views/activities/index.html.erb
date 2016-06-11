@@ -19,17 +19,8 @@
   <% @activities.each do |activity| %>
     <div class="activity">
       <%= link_to activity.owner.first_name, activity.owner %>
-      <% if activity.trackable_type == "CustomBeer" %>
-        <% id = activity.trackable.id %>
-        <% custom_beer = CustomBeer.find_by(id: id) %>
-        added a <%= link_to custom_beer.name, "/custom_beers/#{id}" %>
-      <% else %>
-        <% id = activity.trackable.api_id %>
-        <% api_beer = Untappd::Beer.info(id) %>
-        added a <%= link_to api_beer.beer.beer_name, "/beers/#{id}" %>
-      <% end %>
+        <%= render_activity activity %>
     </div>
-
   <% end %>
 
   <div class="services">
