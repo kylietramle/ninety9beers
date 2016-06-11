@@ -55,10 +55,10 @@ class BeersController < ApplicationController
     @beer = Beer.find(params[:id])
     if @beer.destroy
       flash[:success] = 'The beer was deleted!'
+      redirect_to "/users/#{current_user.id}"
     else
       flash[:error] = 'An error occurred. Try deleting the beer again.'
+      redirect_to "/beers/#{@beer.id}"
     end
-
-    redirect_to "/users/#{current_user.id}"
   end
 end

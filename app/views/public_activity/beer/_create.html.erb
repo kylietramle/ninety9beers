@@ -1,7 +1,7 @@
 <% if activity.trackable && activity.trackable.api_id %>
   <% id = activity.trackable.api_id %>
   <% api_beer = Untappd::Beer.info(id) %>
-  added <%= link_to api_beer.beer.beer_name, "/beers/#{id}" %> to the Beer Rack!
+    added <%= link_to api_beer.beer.beer_name, "/beers/#{id}" %> to the Beer Rack!
 <% else %>
    removed one of the beer.
 <% end %>
