@@ -35,8 +35,8 @@
   </tr>
   </table>
 
+
 <% if current_user && current_user.beers.include?(@api_beer) %>
-  <p>My Ranking: <%= @api_beer.rank %></p>
   <p>Tap/Bottled: <%= @api_beer.tap_convert %></p>
   <p>Location Drank: </p>
   <p>My Image:

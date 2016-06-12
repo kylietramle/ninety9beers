@@ -1,10 +1,11 @@
 class Beer < ActiveRecord::Base
   include PublicActivity::Common
-  #tracked owner: ->(controller, model) { controller && controller.current_user }
   
+  ratyrate_rateable 'overall_taste'
   belongs_to :custom_beer
   belongs_to :user
   mount_uploader :image, BeerImageUploader
+
 
   def tap_convert
     if tap
@@ -14,13 +15,5 @@ class Beer < ActiveRecord::Base
     end
   end
 
-
-  def get_url
-    if self.api_id
-      return "/beers/#{self.api_id}"
-    else
-      return "/beers/custom/#{self.id}"
-    end
-  end
 
 end
