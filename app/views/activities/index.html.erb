@@ -1,41 +1,22 @@
 <!-- Cirlce Starts -->
 <div id="about"  class="container spacer about">
-<h2 class="text-center wowload fadeInUp">Creative photographers of London</h2>  
   <div class="row">
 
   <h2>Friend's Activities</h2>
   <% @activities.each do |activity| %>
     <div class="activity">
-    <li class="list-group-item">
-      <div class="news-avatar">
-        <%= link_to image_tag activity.owner.image_url(:thumb) %>
-      </div>
-      <%= link_to activity.owner.first_name, activity.owner %>
-        <%= render_activity activity %>
-    </li>
+      <li class="list-group-item">
+        <div class="news-avatar">
+          <%= link_to image_tag activity.owner.image_url(:thumb) %>
+        </div>
+        <p class="news-text">
+          <%= link_to activity.owner.first_name, activity.owner %>
+          <%= render_activity activity %>
+        </p>
+      </li>
     </div>
   <% end %>
-
-  <div class="services">
-  <h3 class="text-center wowload fadeInUp">Services</h3>
-  <ul class="row text-center list-inline  wowload bounceInUp">
-      <li>
-            <span><i class="fa fa-camera-retro"></i><b>Photography</b></span>
-        </li>
-        <li>
-            <span><i class="fa fa-cube"></i><b>Studio</b></span>
-        </li>
-        <li>
-            <span><i class="fa fa-graduation-cap"></i><b>Trainings</b></span>
-        </li>
-        <li>
-            <span><i class="fa fa-umbrella"></i><b>Travel</b></span>
-        </li>        
-        <li>
-            <span><i class="fa fa-heart-o"></i><b>Wedding</b></span>
-        </li>
-    </ul>
   </div>
 </div>
-<!-- #Cirlce Ends -->
+
 

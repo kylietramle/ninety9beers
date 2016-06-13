@@ -64,10 +64,6 @@
       </div>
     </div>
     <!-- #Header Starts -->
-  <div class="container">
-    <div class="page-header">
-      <h1><%= yield :page_header %></h1>
-    </div>
 
     <% flash.each do |key, value| %>
       <div class="alert alert-<%= key %>">
@@ -75,7 +71,7 @@
       </div>
     <% end %>
     <%= yield %>
-  </div>
+
 
   <!-- Footer Starts -->
   <div class="footer text-center">
@@ -84,7 +80,6 @@
      <h5>Read about my learning progress here on my <%= link_to "Coding Blog", "https://kylietramle.wordpress.com/" %></h5>
   </div>
   <!-- # Footer Ends -->
-  <a href="#home" class="gototop "><i class="fa fa-angle-up  fa-3x"></i></a>
 
   
 

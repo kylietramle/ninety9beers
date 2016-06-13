@@ -38,11 +38,12 @@
   -webkit-transform: translate(-50%,-50%);
       -ms-transform: translate(-50%,-50%);
           transform: translate(-50%,-50%);
+}
 
 .border-form-div {
   max-width: 350px;
   padding: 19px 29px 29px;
-  margin: 0 auto 20px;
+  margin: 50px auto 50px;
   background-color: #fff;
   border: 1px solid #e89f10;
   -webkit-border-radius: 10px;
