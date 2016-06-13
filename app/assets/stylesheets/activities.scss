@@ -2,11 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .activity {
-  border-bottom: solid 1px #CCC;
+
   padding: 16px 0;
   em {
     color: #777;
     font-size: 12px;
     padding-left: 5px;
   }
+}
+
+.news-avatar {
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  position: relative;
+}
+
+.news-avatar img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: auto;
+  -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
 }

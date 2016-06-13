@@ -1,4 +1,4 @@
-body {	color:#333;	font:300 15px/15px Roboto,Arial,Helvetica;background:url() right no-repeat fixed #fff; -webkit-font-smoothing:antialiased;}
+body {	color:#333;	font:300 15px/15px Roboto,Arial,Helvetica;background-color: #fdc82e; -webkit-font-smoothing:antialiased;}
 
 a{color:#00a9c6; text-decoration:none;}
 a:hover{color:#666;}
@@ -12,7 +12,7 @@ outline: none !important;
 }
 
 h1,h2,h3,h4{margin: 0;line-height: 1em;}
-h1{font:700 5em Roboto,Arial,Helvetica;margin:0.25em 0;text-transform: uppercase;}
+h1{font:700 5em Roboto,Arial,Helvetica;margin:0.25em 0;color: #976517;}
 h2{font:300 2.5em Roboto,Arial,Helvetica;margin-bottom: 1.5em;}
 h3{font:300 2em Roboto,Arial,Helvetica;margin:2em 0 1em 0;}
 h4{font:300 1.5em Roboto,Arial,Helvetica;margin-bottom: 1em;}
@@ -22,7 +22,7 @@ p{font-size:1em;line-height: 1.7em; margin-bottom: 1.7em;}
 
 .spacer{padding: 6em 0;}
 
-.btn{border:none;border-radius: 0;padding: 1em 4em;background: rgba(0,0,0,0.5);text-transform: uppercase;}
+.btn{border:none;border-radius: 5px;padding: 1em 4em;background: rgba(0,0,0,0.5);text-transform: uppercase;}
 .btn:hover,.btn:active{color: #fff;}
 .btn-default{color: #ccc;border: 1px solid #aaa;}
 .btn-default:hover,.btn-default:active{background: rgba(0,0,0,0.8);}
