@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= favicon_link_tag 'favicon.png' %>
 </head>
 <body>
   <div class="topbar animated fadeInLeftBig"></div>
@@ -68,9 +69,10 @@
   </div>
 
   <!-- Footer Starts -->
-  <div class="footer text-center spacer">
-    <p class="wowload flipInX"><a href="#"><i class="fa fa-facebook fa-2x"></i></a> <a href="#"><i class="fa fa-instagram fa-2x"></i></a> <a href="#"><i class="fa fa-twitter fa-2x"></i></a> <a href="#"><i class="fa fa-flickr fa-2x"></i></a> </p>
+  <div class="footer text-center">
     <i class="fa fa-copyright" aria-hidden="true"></i> 2016 99Beers
+    <h5>99 Beers, a final project app created by <%= link_to "Kylie Tram Le", "https://www.linkedin.com/in/kylietramle" %></h5>
+     <h5>Read about my learning progress here on my <%= link_to "Coding Blog", "https://kylietramle.wordpress.com/" %></h5>
   </div>
   <!-- # Footer Ends -->
   <a href="#home" class="gototop "><i class="fa fa-angle-up  fa-3x"></i></a>

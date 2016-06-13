@@ -9,10 +9,25 @@
 
 <ul>
  <li><%= link_to @custom_beer.name, "/custom_beers/#{@custom_beer.id}" %></li>
- <li>Ranking : <%= rating_for @custom_beer,  "overall_taste", disable_after_rate: false %></li>
- <li><%= image_tag @custom_beer.image_url(:preview) %></li>
- <br>
- <li><%= link_to @api_beer.beer.beer_name, "/beers/#{@api_id}" %></li>
- <li>Ranking : <%= rating_for @beer,  "overall_taste", disable_after_rate: false %></li>
- <li><%= image_tag @beer.image_url(:preview) %></li>
+ <% if current_user && current_user.beers.include?(@beer)%>
+  <li> Your Ranking: <%= rating_for @custom_beer, "overall_taste", disable_after_rate: false %> </li>
+  <li><%= image_tag @custom_beer.image_url(:preview) %></li>
+<% else %>
+  <li>Add This Beer to Rank It!</li>
+  <li><%= image_tag @custom_beer.image_url(:preview) %></li>
+  <li>Average Score: <%= @custom_beer.average("overall_taste").nil? ? '0' : @custom_beer.average("overall_taste").avg %></li>
+<% end %>
 </ul>
+
+<ul>
+  <li><%= link_to @api_beer.beer.beer_name, "/beers/#{@api_id}" %></li>
+  <% if current_user && current_user.beers.include?(@beer) %>
+    <li> Your Ranking: <%= rating_for @beer, "overall_taste", disable_after_rate: false %></li>
+    <li><%= image_tag @beer.image_url(:preview) %></li>
+  <% else %>
+    <li>Add This Beer to Rank It!</li>
+    <li><%= image_tag @beer.image_url(:preview) %></li>
+     <li>Average Score: <%= @beer.average("overall_taste").nil? ? '0' : @custom_beer.average("overall_taste").avg %></li>
+  <% end %>
+</ul>
+   

@@ -26,7 +26,7 @@ p{font-size:1em;line-height: 1.7em; margin-bottom: 1.7em;}
 .btn:hover,.btn:active{color: #fff;}
 .btn-default{color: #ccc;border: 1px solid #aaa;}
 .btn-default:hover,.btn-default:active{background: rgba(0,0,0,0.8);}
-.btn-primary{color: #fff;background:#e89f10;width: 100%;outline: none;}
+.btn-primary{color: #fff;background:#e89f10;outline: none;}
 .btn-primary:hover,.btn-primary:active,.btn-primary:focus{background:#f3c024;box-shadow: none;}
 
 .topbar {background:url(lines.png);	height:5px;position: fixed;top: 0;width: 100%;z-index: 1000;}
@@ -89,8 +89,8 @@ p{font-size:1em;line-height: 1.7em; margin-bottom: 1.7em;}
 /*contact*/
 
 
-.footer{background-color: #111; color: #fff; font-size: 1em;color: #aaa;}
-.footer a{color: #aaa;margin: 0 1em; }
+.footer{background-color: #111; color: #fff; font-size: 1em;color: #aaa; padding:30px;}
+.footer a{color: #fdc82e; }
 
 .gototop{position: fixed;bottom: 20px; right: 20px;background: rgba(0,0,0,0.5);padding: 10px;color: #fff;}
 .gototop i{line-height: 0.5em;}
