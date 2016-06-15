@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :activities
   
-  root to: 'beers#index'
+  root to: 'activities#index'
   get '/beers' => 'beers#index'
   post '/beers' => 'beers#create'
   get '/beers/search' => 'beers#search'

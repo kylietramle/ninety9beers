@@ -4,3 +4,17 @@
 img.raty-cancel {
   display: none;
 }
+
+.border-user-div {
+  max-width: 800px;
+  padding: 19px 29px 29px;
+  margin: 50px auto 50px;
+  background-color: #fff;
+  border: 1px solid #e89f10;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+          box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}

@@ -1,33 +1,44 @@
-<h1> User Show Page</h1>
-
-
-<p>User Name: <%= @user.email %></p>
-<p>Beers Drank: <%= @user.beers.count %></p>
-<p>Top 5 Beers: </p>
-
-<p>Beers <%= @user.first_name %> Drank</p>
-
-<ul>
- <li><%= link_to @custom_beer.name, "/custom_beers/#{@custom_beer.id}" %></li>
- <% if current_user && current_user.beers.include?(@beer)%>
-  <li> Your Ranking: <%= rating_for @custom_beer, "overall_taste", disable_after_rate: false %> </li>
-  <li><%= image_tag @custom_beer.image_url(:preview) %></li>
-<% else %>
-  <li>Add This Beer to Rank It!</li>
-  <li><%= image_tag @custom_beer.image_url(:preview) %></li>
-  <li>Average Score: <%= @custom_beer.average("overall_taste").nil? ? '0' : @custom_beer.average("overall_taste").avg %></li>
-<% end %>
-</ul>
-
-<ul>
-  <li><%= link_to @api_beer.beer.beer_name, "/beers/#{@api_id}" %></li>
-  <% if current_user && current_user.beers.include?(@beer) %>
-    <li> Your Ranking: <%= rating_for @beer, "overall_taste", disable_after_rate: false %></li>
-    <li><%= image_tag @beer.image_url(:preview) %></li>
-  <% else %>
-    <li>Add This Beer to Rank It!</li>
-    <li><%= image_tag @beer.image_url(:preview) %></li>
-     <li>Average Score: <%= @beer.average("overall_taste").nil? ? '0' : @custom_beer.average("overall_taste").avg %></li>
-  <% end %>
-</ul>
-   
+<div id="about"  class="container spacer">
+<div class="border-user-div"> 
+  <div class="row">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-xs-12 col-sm-4 text-center">
+              <%= image_tag @user.image_url(:preview), class: "img-thumbnail" %>
+            </div>
+            <!--/col--> 
+            <div class="col-xs-12 col-sm-8">
+              <h2><%= @user.full_name %></h2>
+              <p><strong>Location: </strong><%= @user.location %></p>
+              <p><strong>Total Beers Drank: </strong><%= @user.beers.count %></p>
+              <p><strong>Top 5 Beers: </strong>
+                <span><%= @user.favorite_beers %></span> 
+                <span class="label label-info tags">css3</span>
+                <span class="label label-info tags">jquery</span>
+                <span class="label label-info tags">bootstrap3</span>
+              </p>
+            </div>
+            <!--/col-->          
+            <div class="clearfix"></div>
+            <ul class="list-inline">
+              <li><%= link_to @custom_beer.name, "/custom_beers/#{@custom_beer.id}" %></li>
+              <% if current_user && current_user.beers.include?(@beer)%>
+                <%= image_tag @custom_beer.image_url(:thumb) %></li>
+                Your Ranking: <%= rating_for @custom_beer, "overall_taste", disable_after_rate: false %>
+              <% else %>
+                <li>Add This Beer to Rank It!
+                <%= image_tag @custom_beer.image_url(:thumb) %>
+                Average Rating: <%= @custom_beer.average("overall_taste").nil? ? '0' : @custom_beer.average("overall_taste").avg %></li>
+              <% end %>
+            </ul>
+            
+          <!--/row-->
+        </div>
+        <!--/panel-body-->
+    </div>
+    <!--/col--> 
+  </div>
+  <!--/row--> 
+</div>
+<!--/container-->
+</div>
