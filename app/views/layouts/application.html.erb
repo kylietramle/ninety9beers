@@ -3,6 +3,7 @@
 <head>
   <title>Ninety9beers</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Lato:400,700', media: 'all', 'data-turbolinks-track' => true %> %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= favicon_link_tag 'favicon.png' %>
@@ -50,7 +51,7 @@
                   </li>
                    <li>
                     <div class="profile-image">
-                      <%= image_tag current_user.image_url(:thumb) %>
+                      <%= image_tag current_user.image_url(:preview) %>
                     </div>
                     </li>
                   <% else %>

@@ -1,4 +1,4 @@
-body {	color:#333;	font:300 15px/15px Roboto,Arial,Helvetica;background-color: #fdc82e; -webkit-font-smoothing:antialiased;}
+body {	color:#333;	font-family: 'Lato', sans-serif;background-color: #fdc82e; -webkit-font-smoothing:antialiased;}
 
 a{color:#00a9c6; text-decoration:none;}
 a:hover{color:#666;}
@@ -12,10 +12,10 @@ outline: none !important;
 }
 
 h1,h2,h3,h4{margin: 0;line-height: 1em;}
-h1{font:700 3em Roboto,Arial,Helvetica;margin:0.25em 0;color:#726255;}
-h2{font:300 2.5em Roboto,Arial,Helvetica;margin-bottom: 1.5em;}
-h3{font:300 2em Roboto,Arial,Helvetica;margin:2em 0 1em 0;}
-h4{font:300 1.5em Roboto,Arial,Helvetica;margin-bottom: 1em;}
+h1{font:700 3em;margin:0.25em 0;color:#726255;}
+h2{font:300 2.5em;margin-bottom: 1.5em;}
+h3{font:300 2em;margin:2em 0 1em 0;}
+h4{font:300 1.5em;margin-bottom: 1em;}
 h4 i{margin-right: 0.5em;}
 
 p{font-size:1em;line-height: 1.7em; margin-bottom: 1.7em;}
@@ -66,11 +66,11 @@ p{font-size:1em;line-height: 1.7em; margin-bottom: 1.7em;}
  
 
 @media (max-width: 1200px) {
-	body{font:300 13px/13px Roboto,Arial,Helvetica;}
+	body{font-size:300 13px/13px;font-family: 'Lato', sans-serif}
 	.navbar-brand{padding-top: 11px;}
 	.services ul li{margin:0 0.5em; }
 	
-	.grid figure h2{font: 700 1.5em Roboto,Arial,Helvetica;}
+	.grid figure h2{font-size: 700 1.5em; font-family: 'Lato', sans-serif;}
 	figure.effect-oscar figcaption{padding: 12%;}
 	figure.effect-oscar figcaption::before,figure.effect-chico figcaption::before{top: 20px;right: 20px;bottom: 20px;left: 20px;}
 
@@ -78,8 +78,8 @@ p{font-size:1em;line-height: 1.7em; margin-bottom: 1.7em;}
 }
 
 @media (max-width: 900px) {
-	h1{font: 700 3.5em Roboto,Arial,Helvetica;}
-	h4 {font: 300 1.3em Roboto,Arial,Helvetica;}
+	h1{font: 700 3.5em; font-family: 'Lato', sans-serif}
+	h4 {font: 300 1.3em; font-family: 'Lato', sans-serif}
 	.btn{padding: 1em 2em;}
 	.partners img{margin: 0 15px 25px 0;width: 157px;}
 	.services ul li{width: 9em;height: 9em;}
@@ -91,7 +91,7 @@ p{font-size:1em;line-height: 1.7em; margin-bottom: 1.7em;}
 
 
 @media (max-width: 767px) {
-	body{font:300 12px/12px Roboto,Arial,Helvetica;}
+	body{font-size:300 12px/12px; font-family: 'Lato', sans-serif;}
 	.navbar-nav > li > a {line-height: 1em;}	
 	.navbar-brand{padding: 7px;}
 	.navbar-brand img{height: 37px;}
@@ -101,7 +101,7 @@ p{font-size:1em;line-height: 1.7em; margin-bottom: 1.7em;}
 	.glyphicon-chevron-left:before{display:none;}
 
 	h2.text-center{text-align: left;font-size: 1.7em;}
-	h4 {font: 300 1.2em Roboto,Arial,Helvetica;}
+	h4 {font-size: 300 1.2em; font-family: 'Lato', sans-serif;}
 	#partners h2{padding: 0 1em;} 
 	#home {padding-top: 5em;}
 

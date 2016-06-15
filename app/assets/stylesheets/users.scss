@@ -9,7 +9,7 @@ img.raty-cancel {
   max-width: 800px;
   padding: 19px 29px 29px;
   margin: 50px auto 50px;
-  background-color: #fff;
+  background-color: #feffe7;
   border: 1px solid #e89f10;
   -webkit-border-radius: 10px;
      -moz-border-radius: 10px;
@@ -17,4 +17,28 @@ img.raty-cancel {
   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
      -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
           box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+
+.box {
+  margin: 10px;
+  width: 200px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+  border-radius: 7px;
+  text-align: center;
+  img {
+      max-width: 100%;
+      height: auto;
+    }
+    h2 {
+      font-size: 22px;
+      margin: 0;
+      padding: 25px 10px;
+      a {
+        color: #474747;
+      }
+    }
+  }
+
+.box img {
+  width: 100%;
 }

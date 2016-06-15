@@ -4,15 +4,15 @@
         <div class="panel-body">
           <div class="row">
             <div class="col-xs-12 col-sm-4 text-center">
-              <%= image_tag @user.image_url(:preview), class: "img-thumbnail" %>
+              <%= image_tag @user.image_url(:preview), class: "box" %>
             </div>
             <!--/col--> 
             <div class="col-xs-12 col-sm-8">
               <h2><%= @user.full_name %></h2>
               <p><strong>Location: </strong><%= @user.location %></p>
-              <p><strong>Total Beers Drank: </strong><%= @user.beers.count %></p>
+              <p><strong>Total Beers Added: </strong><%= @user.beers.count %></p>
               <p><strong>Top 5 Beers: </strong>
-                <span><%= @user.favorite_beers %></span> 
+                
                 <span class="label label-info tags">css3</span>
                 <span class="label label-info tags">jquery</span>
                 <span class="label label-info tags">bootstrap3</span>
@@ -20,18 +20,21 @@
             </div>
             <!--/col-->          
             <div class="clearfix"></div>
-            <ul class="list-inline">
-              <li><%= link_to @custom_beer.name, "/custom_beers/#{@custom_beer.id}" %></li>
-              <% if current_user && current_user.beers.include?(@beer)%>
-                <%= image_tag @custom_beer.image_url(:thumb) %></li>
-                Your Ranking: <%= rating_for @custom_beer, "overall_taste", disable_after_rate: false %>
+              <% @user.beers.each do |beer| %>
+              <% if beer.custom_beer_id %>
+                <% custom_beer = beer.custom_beer %>
+                <li><%= link_to custom_beer.name, "/custom_beers/#{custom_beer.id}" %></li>
+                <li><%= image_tag custom_beer.image_url(:thumb) %></li>
+                <li>Average Rating: <%= custom_beer.average("overall_taste").nil? ? '0' : custom_beer.average("overall_taste").avg %></li>
               <% else %>
-                <li>Add This Beer to Rank It!
-                <%= image_tag @custom_beer.image_url(:thumb) %>
-                Average Rating: <%= @custom_beer.average("overall_taste").nil? ? '0' : @custom_beer.average("overall_taste").avg %></li>
+               <% api_id = beer.api_id %>
+               <% api_beer = Untappd::Beer.info(api_id) %>
+                <li><%= link_to api_beer.beer.beer_name, "/beers/#{api_id}" %></li>
+                <li><%= image_tag beer.image_url(:thumb) %></li>
+                <li>Average Rating: <%= beer.average("overall_taste").nil? ? '0' : beer.average("overall_taste").avg %></li>
               <% end %>
-            </ul>
-            
+            <% end %>
+             
           <!--/row-->
         </div>
         <!--/panel-body-->

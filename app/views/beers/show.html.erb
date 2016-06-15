@@ -1,19 +1,5 @@
  <!-- Cirlce Starts -->
-<div id="about"  class="container spacer about">
-<h2 class="text-center wowload fadeInUp">Creative photographers of London</h2>  
-  <div class="row">
-  <div class="col-sm-6 wowload fadeInLeft">
-    <h4><i class="fa fa-camera-retro"></i> Introduction </h4>
-    <p>Creative digital agency for sleek and sophisticated solutions for mobile, websites and software designs, lead by passionate and uber progressive team that lives and breathes design. Creative digital agency for sleek and sophisticated solutions for mobile, websites and software designs.</p>
-    
-  
-  </div>
-  <div class="col-sm-6 wowload fadeInRight">
-  <h4><i class="fa fa-coffee"></i> Passion</h4>
-  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>    
-  </div>
-  </div> 
-
+<div id="about"  class="container spacer about"> 
  <table>
   <tr>
     <th>Beer Name</th>
@@ -36,37 +22,38 @@
   </table>
 
 
-<% if current_user && current_user.beers.include?(@api_beer) %>
-  <p>Tap/Bottled: <%= @api_beer.tap_convert %></p>
-  <p>Location Drank: </p>
-  <p>My Image:
-    <%= image_tag @api_beer.image_url(:preview).to_s %>
-  </p>
-    <div>
-      <%= link_to "Edit Beer", "/beers/#{@api_beer.id}/edit" %>
-      <%= link_to "Delete Beer", "/beers/#{@api_beer.id}", method: :delete, data: {confirm: "Are you sure?"}  %>
-    </div>
-<% elsif current_user %>
-  <h2>Add Beer</h2>
-    <%= form_tag "/beers", multipart: true, method: :post do%>
+  <% if current_user && current_user.beers.include?(@api_beer) %>
+    <p>Tap/Bottled: <%= @api_beer.tap_convert %></p>
+    <p>Location Drank: </p>
+    <p>My Image:
+      <%= image_tag @api_beer.image_url(:preview).to_s %>
+    </p>
       <div>
-        <%= label_tag :rank %>
-        <%= text_field_tag :rank%>
+        <%= link_to "Edit Beer", "/beers/#{@api_beer.id}/edit" %>
+        <%= link_to "Delete Beer", "/beers/#{@api_beer.id}", method: :delete, data: {confirm: "Are you sure?"}  %>
       </div>
-      <div>
-        <%= label_tag :tap %>
-        <%= select_tag(:tap, options_for_select(['Tap', 'Bottled'])) %>
-      </div>
-      <div class="field">
-        <%= label_tag :image %><br>
-        <%= file_field_tag :image %>
-      </div>
-        <%= hidden_field_tag(:api_id, params[:id]) %>
-     <div>
-        <%= submit_tag "I Drank This!" %>
-      </div>
-    <% end %>
-    <%= button_to "Add Your Own Beer", "/custom_beers/new", :method => "get" %>
-<% else %>
-  <p>Please sign up to add beers!</p>
-<% end %>
+  <% elsif current_user %>
+    <h2>Add Beer</h2>
+      <%= form_tag "/beers", multipart: true, method: :post do%>
+        <div>
+          <%= label_tag :rank %>
+          <%= text_field_tag :rank%>
+        </div>
+        <div>
+          <%= label_tag :tap %>
+          <%= select_tag(:tap, options_for_select(['Tap', 'Bottled'])) %>
+        </div>
+        <div class="field">
+          <%= label_tag :image %><br>
+          <%= file_field_tag :image %>
+        </div>
+          <%= hidden_field_tag(:api_id, params[:id]) %>
+       <div>
+          <%= submit_tag "I Drank This!" %>
+        </div>
+      <% end %>
+      <%= button_to "Add Your Own Beer", "/custom_beers/new", :method => "get" %>
+  <% else %>
+    <p>Please sign up to add beers!</p>
+  <% end %>
+</div>

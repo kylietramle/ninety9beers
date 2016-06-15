@@ -12,26 +12,26 @@ class User < ActiveRecord::Base
     "#{self.first_name} #{self.last_name}"
   end
 
-  def favorite_beers
-    ratings = []
-    ratings = Rate.where(rater_id: self.id)
-    ratings.each do |rating|
-      ratings << rating if rating.stars == 5
-    end
+  # def favorite_beers
+  #   ratings = []
+  #   ratings = Rate.where(rater_id: self.id)
+  #   ratings.each do |rating|
+  #     ratings << rating if rating.stars == 5
+  #   end
 
-    beers = []
-    ratings.each do |rating|
-      if rating.rateable_type == "CustomBeer"
-        @top_custom_beer = CustomBeer.find_by(id: rating.rateable_id)
-        beers << @top_custom_beer
-      else
-        @top_beer = Beer.find_by(id: rating.rateable_id)
-        beers << @top_custom_beer
-      end
-    end
+  #   beers = []
+  #   ratings.each do |rating|
+  #     if rating.rateable_type == "CustomBeer"
+  #       @top_custom_beer = CustomBeer.find_by(id: rating.rateable_id)
+  #       beers << @top_custom_beer
+  #     else
+  #       @top_beer = Beer.find_by(id: rating.rateable_id)
+  #       beers << @top_custom_beer
+  #     end
+  #   end
 
-    beers
-  end
+  #   beers
+  # end
 
 
 end
