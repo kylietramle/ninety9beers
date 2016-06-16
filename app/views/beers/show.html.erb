@@ -1,49 +1,32 @@
  <!-- Cirlce Starts -->
 <div id="about"  class="container spacer about"> 
 
-  <div class="row">
-    <div class="col-md-offset-4 col-md-4">
-      <div class="panel panel-warning">
-        <div class="panel-heading" align="center">
-          <img src="<%= @beer.beer.beer_label %>">
-        </div>
-        <div class="panel panel-warning" align="center">
-          <p><strong><%= @beer.beer.beer_name %></strong></p>
-        </div>
-          <div class="panel-body" align="center">
-            <p><%= @beer.beer.beer_style %></p>
-            <% if @beer.user == current_user %>
-              <%= link_to edit_beer_path(@beer) do %>
-                <span class="glyphicon glyphicon-edit"></span>
-                Edit
-              <% end %>
-            <% end %>
-          </div>
-        
-      </div>
+    <div class="panel panel-warning">
+      <div align="center"><img src="<%= @beer.beer.beer_label %>"></div>
+      <div class="panel-heading text-center"><%= @beer.beer.beer_name %></div>
+        <table class="table table-bordered">
+          <tr>
+            <th>Style</th>
+              <td><%= @beer.beer.beer_style %></td>
+          </tr>
+          <tr>
+            <th>ABV</th>
+              <td><%= @beer.beer.beer_abv %></td>
+          </tr>
+          <tr>
+            <th>IBU</th>
+              <td><%= @beer.beer.beer_ibu %></td>
+          </tr>
+          <tr>
+            <th>Brewery</th>
+              <td><%= @beer.beer.brewery.brewery_name %></td>
+          </tr>
+          <tr>
+            <th>Description</th>
+              <td><%= @beer.beer.beer_description %></td>
+          </tr>
+        </table>
     </div>
-  </div>
-
- <table>
-  <tr>
-    <th>Beer Name</th>
-    <th>Label</th>
-    <th>Style</th>
-    <th>ABV</th>
-    <th>IBU</th>
-    <th>Brewery</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td><%= @beer.beer.beer_name %></td>
-    <td><img src="<%= @beer.beer.beer_label %>"</td>
-    <td><%= @beer.beer.beer_style %></td>
-    <td><%= @beer.beer.beer_abv %></td>
-    <td><%= @beer.beer.beer_ibu %></td>
-    <td><%= @beer.beer.brewery.brewery_name %></td>
-    <td><%= @beer.beer.beer_description %></td>
-  </tr>
-  </table>
 
 
   <% if current_user && current_user.beers.include?(@api_beer) %>
