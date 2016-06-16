@@ -1,5 +1,29 @@
  <!-- Cirlce Starts -->
 <div id="about"  class="container spacer about"> 
+
+  <div class="row">
+    <div class="col-md-offset-4 col-md-4">
+      <div class="panel panel-warning">
+        <div class="panel-heading" align="center">
+          <img src="<%= @beer.beer.beer_label %>">
+        </div>
+        <div class="panel panel-warning" align="center">
+          <p><strong><%= @beer.beer.beer_name %></strong></p>
+        </div>
+          <div class="panel-body" align="center">
+            <p><%= @beer.beer.beer_style %></p>
+            <% if @beer.user == current_user %>
+              <%= link_to edit_beer_path(@beer) do %>
+                <span class="glyphicon glyphicon-edit"></span>
+                Edit
+              <% end %>
+            <% end %>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
  <table>
   <tr>
     <th>Beer Name</th>

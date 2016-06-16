@@ -65,3 +65,7 @@
   margin-bottom: 15px;
   padding: 7px 9px;
 }
+.nav li.dropdown {
+  position: relative;
+  z-index:100;
+}

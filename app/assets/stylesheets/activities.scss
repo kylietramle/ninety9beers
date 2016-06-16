@@ -1,14 +1,21 @@
 // Place all the styles related to the activities controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.activity {
 
+.clearfix:after{
+content:"";
+visibiity: hidden;
+display: block;
+clear:both;
+height:0;
+}
+
+.activity {
   padding: 16px 0;
   em {
-    color: #777;
+    color: #fcf8e3;
     font-size: 12px;
     padding-left: 5px;
-    width: 80%;
   }
 }
 
@@ -17,6 +24,8 @@
   height: 40px;
   overflow: hidden;
   position: relative;
+  float:left;
+  margin-right: 1em;
 }
 
 .news-avatar img {
@@ -28,10 +37,4 @@
   -webkit-transform: translate(-50%,-50%);
       -ms-transform: translate(-50%,-50%);
           transform: translate(-50%,-50%);
-  float: left;
-}
-
-.news-text {
-  float: left;
-  clear: right;
 }
