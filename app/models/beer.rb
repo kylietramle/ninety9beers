@@ -1,11 +1,11 @@
 class Beer < ActiveRecord::Base
   include PublicActivity::Common
   
-  ratyrate_rateable 'overall_taste'
   belongs_to :custom_beer
   belongs_to :user
+  has_many :ratings
   mount_uploader :image, BeerImageUploader
-  has_many :ratings, :class_name => 'Rate', :foreign_key => 'rateable_id'
+
 
 
   def tap_convert

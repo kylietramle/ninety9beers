@@ -16,7 +16,6 @@
         <div class="col-md-3 text-center">
           <div><%= image_tag beer.image_url(:preview), class: "beer-box" %></div>
           <div><%= link_to beer.name, beer.url %></div>
-          <div>Average Rating: <%= beer.average("overall_taste").nil? ? '0' : beer.average("overall_taste").avg %></div>
         </div>
       <% end %>
       <div class="clearfloat"></div>

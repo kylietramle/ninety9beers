@@ -18,5 +18,6 @@
 //= require touchSwipe.min
 //= require respond
 //= require jquery.blueimp-gallery.min
+//= require stars
 //= require turbolinks
 //= require_tree .

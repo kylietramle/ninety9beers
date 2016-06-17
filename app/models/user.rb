@@ -1,9 +1,8 @@
 class User < ActiveRecord::Base
   
   has_many :beers
+  has_many :ratings
   mount_uploader :image, AvatarUploader
-  ratyrate_rater
-  has_many :ratings, :class_name => "Rate", :foreign_key => 'rater_id'
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

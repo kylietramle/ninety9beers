@@ -27,10 +27,13 @@ class BeersController < ApplicationController
   def create
     params[:tap] == "Tap" ? tap_param = true : tap_param = false 
     @beer = Beer.new(api_id: params[:api_id], user_id: current_user.id, rank: params[:rank], tap: tap_param, image: params[:image])
-    
+
     if @beer.save
       flash[:success] = 'The beer was added to Beer Rack!'
       @beer.create_activity :create, owner: current_user
+      @rating = Rating.new(user_id: current_user.id, beer_id: @beer.id, rating: params[:stars_dropdown])
+      @rating.save
+      
       redirect_to "/users/#{current_user.id}"
     else
       redirect_to "/beers/#{params[:api_id]}"

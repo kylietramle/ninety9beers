@@ -17,6 +17,7 @@
  *= require bootstrap.min
  *= require set
  *= require style
+ *= require stars
  *= require_tree .
  *= require_self
  */
