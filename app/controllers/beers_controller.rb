@@ -8,6 +8,9 @@ class BeersController < ApplicationController
     @beer = Untappd::Beer.info(params[:id])
     @api_beer = Beer.find_by(api_id: params[:id])
 
+
+    @rating_beer = Beer.new
+
   end
 
   def search

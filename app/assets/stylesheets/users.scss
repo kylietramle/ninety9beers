@@ -49,10 +49,12 @@
 
 .col-md-3 {
   margin-top: 10px;
-  border-bottom: 1px solid green;
   padding-top: 5px;
-  padding-bottom: 5px;
+  // padding-bottom: 5px;
   min-height: 180px;
+  border: 10px solid transparent;
+    -webkit-border-image: url('/assets/woodtexture3.jpg') 40 stretch;
+  border-top: 0;
 }
 
 .clearfloat {

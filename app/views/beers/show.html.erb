@@ -28,7 +28,6 @@
         </table>
     </div>
 
-
   <% if current_user && current_user.beers.include?(@api_beer) %>
     <p>Tap/Bottled: <%= @api_beer.tap_convert %></p>
     <p>Location Drank: </p>

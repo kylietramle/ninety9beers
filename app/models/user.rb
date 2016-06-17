@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   end
 
   def favorite_beers
-    ratings.where(stars: 5.0).beer
+    ratings.where(stars: 5.0)
   end
 
 
