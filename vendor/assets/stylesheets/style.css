@@ -1,7 +1,13 @@
-body {	color:#333;	font-family: 'Lato', sans-serif;background-color: #fdc82e; -webkit-font-smoothing:antialiased;}
+body {color:#333;	font-family: 'Lato', sans-serif;
+	background-color: #fdc82e; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(white,#fdd253, #fdc82e); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(white,#fdd253, #fdc82e); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(white,#fdd253, #fdc82e); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(white,#fdd253, #fdc82e); /* Standard syntax */
+-webkit-font-smoothing:antialiased;}
 
 a{color:#00a9c6; text-decoration:none;}
-a:hover{color:#666;}
+a:hover{color:#666; text-decoration:none;}
 .btn,a,.btn:hover,a:hover {
 -webkit-transition: all 0.3s ease-in-out;
 -moz-transition: all 0.3s ease-in-out;

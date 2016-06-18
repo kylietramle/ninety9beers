@@ -7,7 +7,6 @@
   padding: 19px 29px 29px;
   margin: 50px auto 50px;
   background-color: #fcf8e3;;
-  border: 1px solid #e89f10;
   -webkit-border-radius: 10px;
      -moz-border-radius: 10px;
           border-radius: 10px;
@@ -47,17 +46,21 @@
     }
   }
 
-.col-md-3 {
-  margin-top: 10px;
-  padding-top: 5px;
-  // padding-bottom: 5px;
-  min-height: 180px;
-  border: 10px solid transparent;
-    -webkit-border-image: url('/assets/woodtexture3.jpg') 40 stretch;
-  border-top: 0;
+#user .col-md-3 {
+    margin-top: 10px;
+    padding-top: 5px;
+    // padding-bottom: 5px;
+    min-height: 180px;
+    border: 40px solid transparent;
+    -webkit-border-image: url('/assets/mediumwood.jpg') 100 100;
+    border-top: 0
+}
+
+#user h2 {
+  font-weight: bold;
+  margin-top: 35px;
 }
 
 .clearfloat {
   clear: both;
 }
-

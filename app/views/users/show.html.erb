@@ -1,4 +1,4 @@
-<div id="about"  class="container spacer">
+<div id="user"  class="container spacer">
   <div class="border-user-div">
     <div class="row">
       <div class="col-xs-12 col-sm-4 text-center">
@@ -8,7 +8,6 @@
         <h2><%= @user.full_name %></h2>
         <p><strong>Location: </strong><%= @user.location %></p>
         <p><strong>Total Beers Added: </strong><%= @user.beers.count %></p>
-        <p><strong>Top 5 Beers: </strong>
       </div> 
     </div>
     <div class="row">
@@ -16,9 +15,10 @@
         <div class="col-md-3 text-center">
           <div><%= image_tag beer.image_url(:preview), class: "beer-box" %></div>
           <div><%= link_to beer.name, beer.url %></div>
+          <div class="clearfloat"></div>
         </div>
-      <% end %>
-      <div class="clearfloat"></div>
+      <% end %> 
     </div> 
+
   </div>
 </div>

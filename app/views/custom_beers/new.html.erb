@@ -37,6 +37,12 @@
       <%= label_tag :tap %>
       <%= select_tag(:tap, options_for_select(['Tap', 'Bottled'])) %>
     </div>
+    <%= select_tag 'stars_dropdown', 
+        '<option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>'.html_safe %>
     <div>
       <%= submit_tag "Add to Trophy Wall" %>
     </div>

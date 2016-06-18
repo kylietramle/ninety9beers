@@ -4,3 +4,39 @@
 img.raty-cancel {
   display: none;
 }
+.border-beer-div {
+  max-width: 600px;
+  padding: 19px 29px 29px;
+  margin: 50px auto 50px;
+  background-color: #fcf8e3;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+          box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+
+#beershow .panel-heading {
+  border: 1px solid #e89f10;
+  border-bottom: none;
+}
+
+#beershow table, th, td {
+  border: 1px solid #e89f10;
+}
+
+#beershow .panel-body {
+  color: #00000;
+  font-size: 30px;
+  font-weight: bold;
+  border: 1px solid #e89f10;
+  text-shadow: 1px 0px 1px #ccc, 0px 2px 2px #eee;
+  background-color: #fdf5c9;
+}
+
+#beershow a {
+  padding: 0px 10px;
+  word-wrap: normal;
+  display: inline-block;
+}

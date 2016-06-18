@@ -1,3 +1,4 @@
+<div id="about"  class="container spacer">
 <table>
   <tr>
     <th>Beer Name</th>
@@ -20,7 +21,6 @@
 
 
 <% if current_user && current_user.beers.include?(@general_beer) %>
-
   <p>Tap/Bottled: <%= @general_beer.tap_convert %></p>
   <p>Location Drank: </p>
    <p>My Image:
@@ -31,3 +31,4 @@
       <%= link_to "Delete Beer", "/custom_beers/#{@custom_beer.id}", method: :delete, data: {confirm: "Are you sure?"}  %>
     </div>
 <% end %>
+</div>

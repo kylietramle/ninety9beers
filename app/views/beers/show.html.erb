@@ -1,10 +1,14 @@
  <!-- Cirlce Starts -->
-<div id="about"  class="container spacer about"> 
+<div id="beershow"  class="container spacer about"> 
 
-    <div class="panel panel-warning">
-      <div align="center"><img src="<%= @beer.beer.beer_label %>"></div>
-      <div class="panel-heading text-center"><%= @beer.beer.beer_name %></div>
-        <table class="table table-bordered">
+    <div class="border-beer-div">
+      <div class="panel-heading text-center">
+        <img src="<%= @beer.beer.beer_label %>">
+      </div>
+      <div class="panel-body text-center">
+        <%= @beer.beer.beer_name %>
+      </div>
+        <table class="table">
           <tr>
             <th>Style</th>
               <td><%= @beer.beer.beer_style %></td>
@@ -25,20 +29,36 @@
             <th>Description</th>
               <td><%= @beer.beer.beer_description %></td>
           </tr>
+          <% if current_user && @api_beer.user == current_user %>
+            <tr>
+              <th>Tap/Bottled</th>
+                <td><%= @api_beer.tap_convert %></td>
+            </tr>
+            <tr>
+              <th>My Rating</th>
+                <td>Rating Goes Here</td>
+            </tr>
+            <tr>
+              <th>My Picture</th>
+                <td><%= image_tag @api_beer.image_url(:preview), class: "user-box" %></td>
+            </tr>
+            <tr>
+              <td colspan="2" class="text-center">
+                <%= link_to "/beers/#{@api_beer.id}/edit" do %>
+                  <i class="fa fa-pencil" aria-hidden="true"></i> Edit   
+                <% end %>
+                 <%= link_to "/beers/#{@api_beer.id}", method: :delete, data: {confirm: "Are you sure?"} do %>
+                  <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
         </table>
     </div>
 
-  <% if current_user && current_user.beers.include?(@api_beer) %>
-    <p>Tap/Bottled: <%= @api_beer.tap_convert %></p>
-    <p>Location Drank: </p>
-    <p>My Image:
-      <%= image_tag @api_beer.image_url(:preview).to_s %>
-    </p>
-      <div>
-        <%= link_to "Edit Beer", "/beers/#{@api_beer.id}/edit" %>
-        <%= link_to "Delete Beer", "/beers/#{@api_beer.id}", method: :delete, data: {confirm: "Are you sure?"}  %>
-      </div>
-  <% elsif current_user %>
+        
+
+    <% if current_user %>
     <h2>Add Beer</h2>
       <%= form_tag "/beers", multipart: true, method: :post do%>
         <div>
