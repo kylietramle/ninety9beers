@@ -2,6 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#feed h3.feedtitle {
+  font-size: 3em;
+  font-weight: bold;
+  color: #ee9e07;
+  border-width: 100%;
+  margin-top: 20px;
+  text-align: center;
+}
+
 .clearfix:after{
 content:"";
 visibiity: hidden;
@@ -16,6 +25,7 @@ height:0;
     color: #fcf8e3;
     font-size: 12px;
     padding-left: 5px;
+    width: 80%;
   }
 }
 

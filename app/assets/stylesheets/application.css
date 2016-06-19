@@ -13,7 +13,6 @@
  *= require font-awesome
  *= require animate
  *= require blueimp-gallery.min
- *= require bootstrap
  *= require bootstrap.min
  *= require set
  *= require style
@@ -21,6 +20,13 @@
  *= require_tree .
  *= require_self
  */
+h3.title {
+  font-size: 3em;
+  font-weight: bold;
+  color: #ee9e07;
+  border-width: 100%;
+  margin-top: 5px;
+}
 
 .profile-image {
   margin-top: 15px;
@@ -45,8 +51,7 @@
   max-width: 350px;
   padding: 19px 29px 29px;
   margin: 50px auto 50px;
-  background-color: #fff;
-  border: 1px solid #e89f10;
+  background-color: #fcf8e3;
   -webkit-border-radius: 10px;
      -moz-border-radius: 10px;
           border-radius: 10px;

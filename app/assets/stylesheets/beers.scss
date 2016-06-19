@@ -16,7 +16,7 @@ img.raty-cancel {
      -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
           box-shadow: 0 1px 2px rgba(0,0,0,.05);
 }
-
+// Beer Info Table
 #beershow .panel-heading {
   border: 1px solid #e89f10;
   border-bottom: none;
@@ -36,7 +36,22 @@ img.raty-cancel {
 }
 
 #beershow a {
-  padding: 0px 10px;
+  padding: 0px 5px;
+  word-wrap: normal;
+  display: inline-block;
+}
+
+#beermug {
+  background: url('/assets/mug.png') no-repeat center;
+  background-size: contain;
+  height: 327px;
+  width: 475px;
+  margin-top: -20px;
+  padding: 77px;
+}
+
+#beermug a {
+  padding: 0px 0px;
   word-wrap: normal;
   display: inline-block;
 }

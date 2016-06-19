@@ -7,9 +7,9 @@ class BeersController < ApplicationController
     # Show page for API beers
     @beer = Untappd::Beer.info(params[:id])
     @api_beer = Beer.find_by(api_id: params[:id])
-
-
-    @rating_beer = Beer.new
+    if @api_beer
+      @rating = @api_beer.get_rating(current_user)
+    end
 
   end
 

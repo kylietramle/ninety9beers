@@ -6,7 +6,9 @@ class Beer < ActiveRecord::Base
   has_many :ratings
   mount_uploader :image, BeerImageUploader
 
-
+  def get_rating(user)
+    rating = Rating.find_by(user_id: user.id, beer_id: self.id)
+  end
 
   def tap_convert
     if tap

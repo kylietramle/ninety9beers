@@ -2,19 +2,21 @@
   <h1 class="text-center">99 Beers</h1>
   <h2 class="text-center"> A Collection of Your Favorite Beers</h2>
     <div class="row">
-      <div class="col-sm-6">
+      <div class="col-sm-1"></div>
+    <div class="col-sm-5 col-xs-8">
       <h4>Search for beers</h4>
         <p>Was it Anchor Steam or Anchorage Brewing? Was it a Pale Ale or a Pale Lager. Search by name or type of beer from a database full of thousands of beer submitted by beer drinkers like you.</p>
       </div>
-    <div class="col-sm-6">
+    <div class="col-sm-5 col-xs-8">
       <%= form_tag '/beers/search', method: :post, class: "form-inline" do %>
         <div class="form-group">
         <%= label_tag :beer_search, "Look Up Beer" %>
         <%= text_field_tag :beer_search, "", class: "form-control" %>
       </div>
-          <%= submit_tag "Search", class: "btn btn-primary" %>
+          <%= submit_tag "Search", class: "btn btn-primary btn-xs" %>
       <% end %>
     </div>
+    <div class="col-sm-1"></div>
   </div>
 </div>
 
@@ -27,7 +29,7 @@
      <div class="col-sm-5 col-xs-8">
        <p> Did you just take a sip of an amazing balanced beer and want to note it for the next time? Or maybe it was too hoppy and you would prefer not to order it again. Rate it and add notes so you and your friends can see what you think of the beer.</p>
      </div>
-     <div class="col-sm-1"></div>
+     <div class="col-sm-1"></div>   
 </div>
 
 

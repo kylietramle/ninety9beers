@@ -1,10 +1,6 @@
-<div id="about"  class="container spacer about">
+<div id="signup"  class="container spacer about">
   <div class="border-form-div">
-    <div class="panel-heading">
-      <div class="panel-title">
-        <h1>Log In</h1>
-      </div>
-    </div>
+    <h3 class="title">Log In</h3>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-group">
@@ -25,7 +21,7 @@
       <% end -%>
 
       <div class="form-group">
-        <%= f.submit "Log in", class: "btn btn-primary" %>
+        <%= f.submit "Log in", class: "btn btn-primary-100" %>
       </div>
     <% end %>
 

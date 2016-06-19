@@ -1,49 +1,57 @@
-<h1>Add New Beer</h1>
+<div id="about"  class="container spacer about">
+  <div class="border-form-div">
+  <div class="panel panel-warning">
+    <div class="panel-heading"><h1>Add New Beer</h1></div>
+  </div>
 
-<%= form_tag "/custom_beers", multipart: true, method: :post do %>
-    <div>
-      <%= label_tag :name %>
-      <%= text_field_tag :name %>
-    </div>
-    <div>
-      <%= label_tag :image %><br>
-      <%= file_field_tag :image %>
-    </div>
-    <div>
-      <%= label_tag :style %>
-      <%= text_field_tag :style %>
-    </div>
-    <div>
-      <%= label_tag :abv %>
-      <%= text_field_tag :abv %>
-    </div>
-    <div>
-      <%= label_tag :ibu %>
-      <%= text_field_tag :ibu %>
-    </div>
-    <div>
-      <%= label_tag :brewery %>
-      <%= text_field_tag :brewery %>
-    </div>
-    <div>
-      <%= label_tag :description %>
-      <%= text_field_tag :description %>
-    </div>
-    <div>
-      <%= label_tag :rank %>
-      <%= text_field_tag :rank%>
-    </div>
-    <div>
-      <%= label_tag :tap %>
-      <%= select_tag(:tap, options_for_select(['Tap', 'Bottled'])) %>
-    </div>
-    <%= select_tag 'stars_dropdown', 
-        '<option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>'.html_safe %>
-    <div>
-      <%= submit_tag "Add to Trophy Wall" %>
-    </div>
-<% end %>
+    <%= form_tag "/custom_beers", multipart: true, method: :post do %>
+        <div class="form-group">
+          <%= label_tag :name %>
+          <%= text_field_tag :name, "", class: "form-control"  %>
+        </div>
+        <div class="form-group">
+          <%= label_tag :image, "Upload Beer Image" %><br>
+          <%= file_field_tag :image, class: "input-sm" %>
+        </div>
+        <div class="form-group">
+          <%= label_tag :style %>
+          <%= text_field_tag :style, "", class: "form-control"  %>
+        </div>
+        <div class="form-group">
+          <%= label_tag :abv %>
+          <%= text_field_tag :abv, "", class: "form-control"  %>
+        </div>
+        <div class="form-group">
+          <%= label_tag :ibu %>
+          <%= text_field_tag :ibu, "", class: "form-control"  %>
+        </div>
+        <div class="form-group">
+          <%= label_tag :brewery %>
+          <%= text_field_tag :brewery, "", class: "form-control"  %>
+        </div>
+        <div class="form-group">
+          <%= label_tag :description %>
+          <%= text_field_tag :description, "", class: "form-control"  %>
+        </div>
+        <div class="form-group">
+          <%= label_tag :rank %>
+          <%= text_field_tag :rank, "", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= label_tag :tap, "Tap/Bottled" %>
+          <%= select_tag(:tap, options_for_select(['Tap', 'Bottled'])) %>
+        </div>
+        <div class="form-group">
+          <%= select_tag 'stars_dropdown', 
+              '<option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>'.html_safe %>
+        </div>
+        <div>
+          <%= submit_tag "Add to Trophy Wall", class: "btn btn-primary" %>
+        </div>
+    <% end %>
+  </div>
+</div>

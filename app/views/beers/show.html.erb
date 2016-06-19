@@ -1,93 +1,102 @@
  <!-- Cirlce Starts -->
 <div id="beershow"  class="container spacer about"> 
-
-    <div class="border-beer-div">
-      <div class="panel-heading text-center">
-        <img src="<%= @beer.beer.beer_label %>">
-      </div>
-      <div class="panel-body text-center">
-        <%= @beer.beer.beer_name %>
-      </div>
-        <table class="table">
-          <tr>
-            <th>Style</th>
-              <td><%= @beer.beer.beer_style %></td>
-          </tr>
-          <tr>
-            <th>ABV</th>
-              <td><%= @beer.beer.beer_abv %></td>
-          </tr>
-          <tr>
-            <th>IBU</th>
-              <td><%= @beer.beer.beer_ibu %></td>
-          </tr>
-          <tr>
-            <th>Brewery</th>
-              <td><%= @beer.beer.brewery.brewery_name %></td>
-          </tr>
-          <tr>
-            <th>Description</th>
-              <td><%= @beer.beer.beer_description %></td>
-          </tr>
-          <% if current_user && @api_beer.user == current_user %>
-            <tr>
-              <th>Tap/Bottled</th>
-                <td><%= @api_beer.tap_convert %></td>
-            </tr>
-            <tr>
-              <th>My Rating</th>
-                <td>Rating Goes Here</td>
-            </tr>
-            <tr>
-              <th>My Picture</th>
-                <td><%= image_tag @api_beer.image_url(:preview), class: "user-box" %></td>
-            </tr>
-            <tr>
-              <td colspan="2" class="text-center">
-                <%= link_to "/beers/#{@api_beer.id}/edit" do %>
-                  <i class="fa fa-pencil" aria-hidden="true"></i> Edit   
-                <% end %>
-                 <%= link_to "/beers/#{@api_beer.id}", method: :delete, data: {confirm: "Are you sure?"} do %>
-                  <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
-                <% end %>
-              </td>
-            </tr>
-          <% end %>
-        </table>
+  <div class="border-beer-div">
+    <div class="panel-heading text-center">
+      <img src="<%= @beer.beer.beer_label %>">
     </div>
-
-        
-
-    <% if current_user %>
-    <h2>Add Beer</h2>
-      <%= form_tag "/beers", multipart: true, method: :post do%>
-        <div>
-          <%= label_tag :rank %>
-          <%= text_field_tag :rank%>
-        </div>
-        <div>
-          <%= label_tag :tap %>
-          <%= select_tag(:tap, options_for_select(['Tap', 'Bottled'])) %>
-        </div>
-        <div class="field">
-          <%= label_tag :image %><br>
-          <%= file_field_tag :image %>
-        </div>
+    <div class="panel-body text-center">
+      <%= @beer.beer.beer_name %>
+    </div>
+      <table class="table">
+        <tr>
+          <th>Style</th>
+            <td><%= @beer.beer.beer_style %></td>
+        </tr>
+        <tr>
+          <th>ABV</th>
+            <td><%= @beer.beer.beer_abv %></td>
+        </tr>
+        <tr>
+          <th>IBU</th>
+            <td><%= @beer.beer.beer_ibu %></td>
+        </tr>
+        <tr>
+          <th>Brewery</th>
+            <td><%= @beer.beer.brewery.brewery_name %></td>
+        </tr>
+        <tr>
+          <th>Description</th>
+            <td><%= @beer.beer.beer_description %></td>
+        </tr>
+      </table>
+      <% if current_user && current_user.beers.include?(@api_beer) %>
+        <table class="table">
+        <p>I Drank This!</p>
+          <tr>
+            <th>Tap/Bottled</th>
+              <td><%= @api_beer.tap_convert %></td>
+          </tr>
+          <tr>
+            <th>My Rating</th>
+              <td><%= select_tag 'stars_dropdown', 
+          '<option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>'.html_safe, class: "stars_show" %></td>
+          </tr>
+          <tr>
+            <th>My Picture</th>
+              <td><%= image_tag @api_beer.image_url(:preview), class: "user-box" %></td>
+          </tr>
+          <tr>
+            <td colspan="2" class="text-center">
+              <%= link_to "/beers/#{@api_beer.id}/edit" do %>
+                <i class="fa fa-pencil" aria-hidden="true"></i> Edit   
+              <% end %>
+               <%= link_to "/beers/#{@api_beer.id}", method: :delete, data: {confirm: "Are you sure?"} do %>
+                <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
+              <% end %>
+            </td>
+          </tr>
+        </table>
+      <% elsif current_user %>
+      <div id="beermug" align="center">
+        <%= form_tag "/beers", multipart: true, method: :post do %>
+          <div class="form-group">
+            <%= label_tag "Rate This Beer" %>
+            <%= select_tag 'stars_dropdown', 
+            '<option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>'.html_safe %>
+          </div>
+          <div class="form-group">
+            <%= label_tag :tap, "Tap/Bottled" %>
+            <%= select_tag(:tap, options_for_select(['Tap', 'Bottled'])) %>
+          </div>
+          <div class="form-group" %>
+            <%= label_tag "Upload Your Image" %>
+            <%= file_field_tag :image %>
+          </div>
           <%= hidden_field_tag(:api_id, params[:id]) %>
-
-        <%= select_tag 'stars_dropdown', 
-        '<option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>'.html_safe %>
-         <div>
-          <%= submit_tag "I Drank This!" %>
+           <div>
+          <%= submit_tag "Add To Wall", class: "btn btn-primary" %>
+          </div>
+          <% end %>
+          <%= link_to "Add A Custom Beer", "/custom_beers/new", :method => "get" %>
         </div>
-      <% end %>
-
-      <%= button_to "Add Your Own Beer", "/custom_beers/new", :method => "get" %>
-  <% else %>
-    <p>Please sign up to add beers!</p>
-  <% end %>
+      <% else %>
+        <p>Please sign up to add beers!</p>
+    <% end %>
+  </div>
 </div>
+<% if current_user && current_user.beers.include?(@api_beer) %>
+  <script type="text/javascript">
+    $(window).bind("load", function() {
+      $('.stars_show').barrating('set', <%= @rating.rating.to_i %>);
+    });
+  </script>
+<% end %>
+

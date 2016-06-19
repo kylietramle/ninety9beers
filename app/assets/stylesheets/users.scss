@@ -6,7 +6,7 @@
   max-width: 800px;
   padding: 19px 29px 29px;
   margin: 50px auto 50px;
-  background-color: #fcf8e3;;
+  background-color: #fcf8e3;
   -webkit-border-radius: 10px;
      -moz-border-radius: 10px;
           border-radius: 10px;
@@ -45,15 +45,15 @@
       }
     }
   }
-
+  
 #user .col-md-3 {
     margin-top: 10px;
     padding-top: 5px;
     // padding-bottom: 5px;
     min-height: 180px;
-    border: 40px solid transparent;
-    -webkit-border-image: url('/assets/mediumwood.jpg') 100 100;
-    border-top: 0
+    border: 35px solid transparent;
+    -webkit-border-image: url('/assets/wood.jpg') 100 100;
+    border-top: 0;
 }
 
 #user h2 {

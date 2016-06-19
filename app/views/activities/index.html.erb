@@ -1,8 +1,6 @@
 <!-- Cirlce Starts -->
-<div id="about"  class="container spacer about">
-  <div class="row">
-
-  <h2>Friend's Activities</h2>
+<div id="feed"  class="container spacer about">
+  <span><i class="fa fa-beer fa-2x" aria-hidden="true"></i><h3 class="feedtitle">Bar Feed</h3></span>
   <% @activities.each do |activity| %>
     <div class="activity">
       <div class="list-group-item clearfix">
@@ -16,7 +14,6 @@
       </div>
     </div>
   <% end %>
-  </div>
 </div>
 
 

@@ -28,8 +28,11 @@ p{font-size:1em;line-height: 1.7em;}
 
 .spacer{padding: 6em 0;}
 
-.btn{border:none;border-radius: 5px;padding: 1em 4em;background: rgba(0,0,0,0.5);text-transform: uppercase;}
+.btn{border:none;border-radius: 5px;padding: 0.7em 2em;background: rgba(0,0,0,0.5);text-transform: uppercase;}
 .btn:hover,.btn:active{color: #fff;}
+.btn-primary-100{color: #fff;background:#e89f10;outline: none;width: 100%; margin: 10px 0px;}
+.btn-primary-100:hover,.btn-primary-100:active,.btn-primary-100:focus{background:#f3c024;box-shadow: none;}
+
 .btn-default{color: #ccc;border: 1px solid #aaa;}
 .btn-default:hover,.btn-default:active{background: rgba(0,0,0,0.8);}
 .btn-primary{color: #fff;background:#e89f10;outline: none;}
@@ -38,13 +41,13 @@ p{font-size:1em;line-height: 1.7em;}
 .topbar {background:url(lines.png);	height:5px;position:fixed;top: 0;width: 100%;z-index: 1000;}
 .navbar-nav > li > a{font-size: 1em;line-height: 3.6em;}
 .navbar-fixed-top{top: 5px;}
-.navbar-inverse{background: #111;}
+.navbar-inverse{background: #632b00;}
 .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus{background: none;color: #E89F10;}
 
 #head,.carousel{margin-top: 0;}
 
 #home{padding-top: 6em;}
-#search{background-color: white; width: 100%;}
+#search{background: url('/assets/beerglasses4.png') no-repeat center;}
 
 /*about*/
 .about.spacer{padding-left: 4em; padding-right: 4em;padding-bottom: 0;}
@@ -63,7 +66,7 @@ p{font-size:1em;line-height: 1.7em;}
 
 
 
-.footer{background-color: #111; color: #fff; font-size: 1em;color: #aaa; padding:30px;}
+.footer{background-color: #632b00; color: #fff; font-size: 1em;color: #aaa; padding:30px;}
 .footer a{color: #fdc82e; }
 
 .gototop{position: fixed;bottom: 20px; right: 20px;background: rgba(0,0,0,0.5);padding: 10px;color: #fff;}
