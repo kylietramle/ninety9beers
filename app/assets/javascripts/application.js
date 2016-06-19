@@ -18,5 +18,4 @@
 //= require touchSwipe.min
 //= require respond
 //= require stars
-//= require turbolinks
 //= require_tree .

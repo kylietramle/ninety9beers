@@ -9,7 +9,7 @@ class CustomBeersController < ApplicationController
     @custom_beer.save
 
     params[:tap] == "Tap" ? tap_param = true : tap_param = false 
-    @beer = Beer.new(custom_beer_id: @custom_beer.id, user_id: current_user.id, rank: params[:rank], tap: params[:tap], image: params[:image])
+    @beer = Beer.new(custom_beer_id: @custom_beer.id, user_id: current_user.id, tap: params[:tap], image: params[:image])
     if @beer.save
       flash[:success] = 'The beer was added to Beer Rack!'
       @custom_beer.create_activity :create, owner: current_user
@@ -38,7 +38,7 @@ class CustomBeersController < ApplicationController
 
      @beer = @custom_beer.beer
      params[:tap] == "Tap" ? tap_param = true : tap_param = false 
-    if @beer.update(custom_beer_id: @custom_beer.id, rank: params[:rank], tap: params[:tap], image: params[:image])
+    if @beer.update(custom_beer_id: @custom_beer.id, tap: params[:tap], image: params[:image])
       flash[:success] = 'The beer was edited!'
       @custom_beer.create_activity :update, owner: current_user
       redirect_to "/custom_beers/#{@custom_beer.id}"

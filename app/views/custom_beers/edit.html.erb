@@ -29,10 +29,6 @@
       <%= text_field_tag :description, @custom_beer.description %>
     </div>
     <div>
-      <%= label_tag :rank %>
-      <%= text_field_tag :rank, @general_beer.rank %>
-    </div>
-    <div>
       <%= label_tag :tap %>
       <%= select_tag(:tap, options_for_select(['Tap', 'Bottle'])) %>
     </div>

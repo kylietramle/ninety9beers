@@ -11,7 +11,7 @@
       </div> 
     </div>
     <div class="row">
-      <% @user.beers.each do |beer| %>
+      <% @paginable_beers.each do |beer| %>
         <div class="col-md-3 text-center">
           <div><%= image_tag beer.image_url(:preview), class: "beer-box" %></div>
           <div><%= link_to beer.name, beer.url %></div>
@@ -19,6 +19,6 @@
         </div>
       <% end %> 
     </div> 
-
+    <div class="text-center"><%= paginate @paginable_beers %></div>
   </div>
 </div>

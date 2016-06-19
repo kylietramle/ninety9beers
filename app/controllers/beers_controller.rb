@@ -19,14 +19,13 @@ class BeersController < ApplicationController
     per_page = 20
   
     @beers = Untappd::Beer.search(searched_beer)
-    # count = results.count
 
     # @beers = Kaminari.paginate_array(results.take(per_page), total_count: count).page(page)
   end
 
   def create
     params[:tap] == "Tap" ? tap_param = true : tap_param = false 
-    @beer = Beer.new(api_id: params[:api_id], user_id: current_user.id, rank: params[:rank], tap: tap_param, image: params[:image])
+    @beer = Beer.new(api_id: params[:api_id], user_id: current_user.id, tap: tap_param, image: params[:image])
 
     if @beer.save
       flash[:success] = 'The beer was added to Beer Rack!'
@@ -47,7 +46,7 @@ class BeersController < ApplicationController
   def update
      @beer = Beer.find(params[:id])
      params[:tap] == "Tap" ? tap_param = true : tap_param = false 
-     if @beer.update(rank: params[:rank], tap: tap_param, image: params[:image])
+     if @beer.update(tap: tap_param, image: params[:image])
       flash[:success] = 'The beer was edited!'
       @beer.create_activity :update, owner: current_user
       redirect_to "/beers/#{@beer.api_id}"
