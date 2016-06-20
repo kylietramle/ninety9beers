@@ -31,7 +31,7 @@
       </table>
       <% if current_user && current_user.beers.include?(@beer) %>
         <table class="table">
-        <p>I Drank This!</p>
+        <p class="drankit">Drank It!<i class="fa fa-check-circle-o" aria-hidden="true"></i></p>
           <tr>
             <th>Tap/Bottled</th>
               <td><%= @beer.tap_convert %></td>
@@ -87,12 +87,16 @@
           </div>
           <% end %>
           <%= link_to "Add A Custom Beer", "/custom_beers/new", :method => "get" %>
-        </div>
       <% else %>
-        <p>Please sign up to add beers!</p>
+        <p class="drankit">Please sign up to add beers!</p>
+    <% end %>
+    </div>
+    <%= link_to "/users/#{current_user.id}" do %>
+      <i class="fa fa-angle-double-left" aria-hidden="true"></i> Back To Trophy Wall
     <% end %>
   </div>
 </div>
+
 <% if current_user && current_user.beers.include?(@beer) && @beer.get_rating(current_user) %>
   <script type="text/javascript">
     $(window).bind("load", function() {

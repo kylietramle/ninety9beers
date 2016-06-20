@@ -1,13 +1,13 @@
 <!-- Cirlce Starts -->
 <div id="feed"  class="container spacer about">
-  <span class="titlealign"><i class="fa fa-beer fa-2x" aria-hidden="true"></i><h3 class="feedtitle">Bar Feed</h3>
+  <h3 class="feedtitle">Bar Feed</h3>
   <% @activities.each do |activity| %>
     <div class="activity">
       <div class="list-group-item clearfix">
         <div class="news-avatar">
           <%= link_to image_tag activity.owner.image_url(:preview) %>
         </div>
-        <span class="news-text">
+        <span>
           <%= link_to activity.owner.first_name, activity.owner %>
           <%= render_activity activity %>
         </span>

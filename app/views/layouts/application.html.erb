@@ -67,10 +67,15 @@
 
       </div>
     </div>
-    
+
    <% flash.each do |key, value| %>
     <div class="alert alert-<%= key %>">
-      <%= value %>
+      <a href="#" data-dismiss="alert" class="close">×</a>
+      <ul>
+        <li>
+          <%= value %>
+        </li>
+      </ul>
     </div>
   <% end %>
     <!-- #Header Starts -->
