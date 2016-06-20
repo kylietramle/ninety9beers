@@ -20,6 +20,11 @@
  *= require_tree .
  *= require_self
  */
+ .alert {
+  margin-top: 80px;
+  margin-bottom: -85px;
+ }
+
 h3.title {
   font-size: 3em;
   font-weight: bold;

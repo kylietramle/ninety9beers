@@ -2,39 +2,39 @@
 <div id="beershow"  class="container spacer about"> 
   <div class="border-beer-div">
     <div class="panel-heading text-center">
-      <img src="<%= @beer.beer.beer_label %>">
+      <img src="<%= @api_beer.beer.beer_label %>">
     </div>
     <div class="panel-body text-center">
-      <%= @beer.beer.beer_name %>
+      <%= @api_beer.beer.beer_name %>
     </div>
       <table class="table">
         <tr>
           <th>Style</th>
-            <td><%= @beer.beer.beer_style %></td>
+            <td><%= @api_beer.beer.beer_style %></td>
         </tr>
         <tr>
           <th>ABV</th>
-            <td><%= @beer.beer.beer_abv %></td>
+            <td><%= @api_beer.beer.beer_abv %></td>
         </tr>
         <tr>
           <th>IBU</th>
-            <td><%= @beer.beer.beer_ibu %></td>
+            <td><%= @api_beer.beer.beer_ibu %></td>
         </tr>
         <tr>
           <th>Brewery</th>
-            <td><%= @beer.beer.brewery.brewery_name %></td>
+            <td><%= @api_beer.beer.brewery.brewery_name %></td>
         </tr>
         <tr>
           <th>Description</th>
-            <td><%= @beer.beer.beer_description %></td>
+            <td><%= @api_beer.beer.beer_description %></td>
         </tr>
       </table>
-      <% if current_user && current_user.beers.include?(@api_beer) %>
+      <% if current_user && current_user.beers.include?(@beer) %>
         <table class="table">
         <p>I Drank This!</p>
           <tr>
             <th>Tap/Bottled</th>
-              <td><%= @api_beer.tap_convert %></td>
+              <td><%= @beer.tap_convert %></td>
           </tr>
           <tr>
             <th>My Rating</th>
@@ -47,14 +47,14 @@
           </tr>
           <tr>
             <th>My Picture</th>
-              <td><%= image_tag @api_beer.image_url(:preview), class: "user-box" %></td>
+              <td><%= image_tag @beer.image_url(:preview), class: "user-box" %></td>
           </tr>
           <tr>
             <td colspan="2" class="text-center">
-              <%= link_to "/beers/#{@api_beer.id}/edit" do %>
+              <%= link_to "/beers/#{@beer.id}/edit" do %>
                 <i class="fa fa-pencil" aria-hidden="true"></i> Edit   
               <% end %>
-               <%= link_to "/beers/#{@api_beer.id}", method: :delete, data: {confirm: "Are you sure?"} do %>
+               <%= link_to "/beers/#{@beer.id}", method: :delete, data: {confirm: "Are you sure?"} do %>
                 <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
               <% end %>
             </td>
@@ -66,7 +66,8 @@
           <div class="form-group">
             <%= label_tag "Rate This Beer" %>
             <%= select_tag 'stars_dropdown', 
-            '<option value="1">1</option>
+              '<option value="" selected disabled hidden></option>
+              <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
               <option value="4">4</option>
@@ -92,17 +93,11 @@
     <% end %>
   </div>
 </div>
-<% if current_user && current_user.beers.include?(@api_beer) && @rating %>
+<% if current_user && current_user.beers.include?(@beer) && @beer.get_rating(current_user) %>
   <script type="text/javascript">
     $(window).bind("load", function() {
-      $('.stars_show').barrating('set', <%= @rating.rating.to_i %>);
+      $('.stars_show').barrating('set', <%= @beer.get_rating(current_user).rating.to_i %>);
       $('.stars_show').barrating('readonly', true);
-    });
-  </script>
-<% elsif current_user && current_user.beers.include?(@api_beer) %>
-    <script type="text/javascript">
-    $(window).bind("load", function() {
-      $('.stars_show').barrating('clear');
     });
   </script>
 <% end %>

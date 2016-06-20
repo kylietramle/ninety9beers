@@ -4,6 +4,8 @@ class Beer < ActiveRecord::Base
   belongs_to :custom_beer
   belongs_to :user
   has_many :ratings
+  accepts_nested_attributes_for :ratings
+  validates_associated :ratings
   mount_uploader :image, BeerImageUploader
 
   def get_rating(user)
@@ -34,6 +36,14 @@ class Beer < ActiveRecord::Base
       return "/beers/#{api_id}"
     end
   end
+
+  # def self.find_api_beer(id)
+  #   if Beer.find_by(api_id: id)
+  #     return Beer.find_by(api_id: id)
+  #   else
+  #     return Untappd::Beer.info(id)
+  #   end
+  # end
 
 
 end

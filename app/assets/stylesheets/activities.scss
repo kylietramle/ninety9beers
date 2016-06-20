@@ -10,7 +10,9 @@
   margin-top: 20px;
   text-align: center;
 }
-
+.titlealign {
+   display: inline-block;
+}
 .clearfix:after{
 content:"";
 visibiity: hidden;
@@ -22,7 +24,7 @@ height:0;
 .activity {
   padding: 16px 0;
   em {
-    color: #fcf8e3;
+    background-color: #fcf8e3;
     font-size: 12px;
     padding-left: 5px;
     width: 80%;

@@ -4,7 +4,7 @@
 
 .border-user-div {
   max-width: 800px;
-  padding: 19px 29px 29px;
+  padding: 19px 15px 29px;
   margin: 50px auto 50px;
   background-color: #fcf8e3;
   -webkit-border-radius: 10px;
@@ -27,33 +27,46 @@
     }
   }
 
+  .fa {
+    padding: 0px 5px;
+  }
+
 .beer-box {
   width: 100px;
+  height: 100px;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
   border-radius: 7px;
-  text-align: center;
-  img {
-      max-width: 100%;
-      height: auto;
+  text-align: center; 
+  overflow: hidden;
+  position: relative;
+  float:left;
+}
+
+.beer-box img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 100%;
+    width: auto;
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
     }
-    h2 {
-      font-size: 22px;
-      margin: 0;
-      padding: 25px 10px;
-      a {
-        color: #474747;
-      }
-    }
-  }
   
 #user .col-md-3 {
     margin-top: 10px;
     padding-top: 5px;
-    // padding-bottom: 5px;
+    padding-bottom: 5px;
     min-height: 180px;
     border: 30px solid transparent;
     -webkit-border-image: url('/assets/wood.jpg') 100 100;
     border-top: 0;
+
+    a {
+      font-size: 11px;
+      text-decoration: none;
+      color: #07296b;
+    }
 }
 
 #user h2 {

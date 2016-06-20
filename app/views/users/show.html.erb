@@ -6,14 +6,14 @@
       </div>
       <div class="col-xs-12 col-sm-8">
         <h2><%= @user.full_name %></h2>
-        <p><strong>Location: </strong><%= @user.location %></p>
-        <p><strong>Total Beers Added: </strong><%= @user.beers.count %></p>
+        <p><i class="fa fa-home" aria-hidden="true"></i><strong>Location: </strong><%= @user.location %></p>
+        <p><i class="fa fa-beer" aria-hidden="true"></i><strong>Total Beers Added: </strong><%= @user.beers.count %></p>
       </div> 
     </div>
     <div class="row">
       <% @paginable_beers.each do |beer| %>
         <div class="col-md-3 text-center">
-          <div><%= image_tag beer.image_url(:preview), class: "beer-box" %></div>
+          <div class="beer-box"><%= image_tag beer.image_url(:preview) %></div>
           <div><%= link_to beer.name, beer.url %></div>
           <div class="clearfloat"></div>
         </div>
