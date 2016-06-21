@@ -10,13 +10,13 @@
     <div class="col-sm-5 col-xs-8">
       <%= form_tag '/beers/search', method: :post, class: "form-inline" do %>
         <div class="form-group">
-        <%= label_tag :beer_search, "Look Up Beer" %>
-        <%= text_field_tag :beer_search, "", class: "form-control" %>
-      </div>
+          <%= label_tag :beer_search, "Look Up Beer" %>
+          <%= text_field_tag :beer_search, "", class: "form-control" %>
+        </div>
           <%= submit_tag "Search", class: "btn btn-primary btn-xs" %>
       <% end %>
+      <%= link_to "Add Your Own Beer", "/custom_beers/new", class: "btn-newbeer" %>
     </div>
-    <div class="col-sm-1"></div>
   </div>
 </div>
 
@@ -28,8 +28,7 @@
      </div>
      <div class="col-sm-5 col-xs-8">
        <p> Did you just take a sip of an amazing balanced beer and want to note it for the next time? Or maybe it was too hoppy and you would prefer not to order it again. Rate it and add notes so you and your friends can see what you think of the beer.</p>
-     </div>
-     <div class="col-sm-1"></div>   
+     </div>  
 </div>
 
 
@@ -42,6 +41,5 @@
     <div class="col-sm-5 col-xs-8">
       <%= image_tag "trophywall1.png", class: "img-responsive" %>
     </div>
-    <div class="col-sm-1"></div>
 </div>
 

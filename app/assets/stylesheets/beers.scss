@@ -43,7 +43,7 @@ img.raty-cancel {
 
 #beermug {
   margin: 0 auto;
-  width: 33%;
+  width: 400px;
   text-align: center;
 }
 
@@ -62,4 +62,13 @@ img.raty-cancel {
   color: #3a5795;
   text-align: center;
   font-weight: bold;
+}
+
+.btn-newbeer {
+  background: transparent;
+  border: 1px solid #e89f10;
+  border-radius: 5px;
+  padding: 0.7em 2em;
+  text-transform: uppercase;
+  color: #e89f10;
 }

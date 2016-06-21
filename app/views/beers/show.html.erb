@@ -1,4 +1,3 @@
- <!-- Cirlce Starts -->
 <div id="beershow"  class="container spacer about"> 
   <div class="border-beer-div">
     <div class="panel-heading text-center">
@@ -64,10 +63,6 @@
           <i class="fa fa-angle-double-left" aria-hidden="true"></i> Back To Trophy Wall
         <% end %>
       <% elsif current_user %>
-
-
-
-
       <div id="beermug">
         <%= form_tag "/beers", multipart: true, method: :post do %>
           <div class="form-group">
@@ -90,8 +85,8 @@
           </div>
           <%= hidden_field_tag(:api_id, params[:id]) %>
           <%= hidden_field_tag(:beer_name, @api_beer.beer.beer_name) %>
-           <div>
-          <%= submit_tag "Add To Wall", class: "btn btn-primary" %>
+          <div>
+            <%= submit_tag "Add To Wall", class: "btn btn-primary" %>
           </div>
           <% end %>
           <%= link_to "Add A Custom Beer", "/custom_beers/new", :method => "get" %>

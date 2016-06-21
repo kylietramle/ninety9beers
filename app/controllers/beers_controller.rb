@@ -35,6 +35,7 @@ class BeersController < ApplicationController
 
   def edit
      @beer = Beer.find(params[:id])
+     @api_beer = Untappd::Beer.info(@beer.api_id)
   end
 
   def update
@@ -42,6 +43,7 @@ class BeersController < ApplicationController
      params[:tap] == "Tap" ? tap_param = true : tap_param = false 
      if @beer.update(tap: tap_param, image: params[:image])
       flash[:success] = 'The beer was edited!'
+      # @beer.ratings.update(user_id: current_user.id, beer_id: @beer.id, rating: params[:stars_dropdown])
       @beer.create_activity :update, owner: current_user
       
       redirect_to "/beers/#{@beer.api_id}"

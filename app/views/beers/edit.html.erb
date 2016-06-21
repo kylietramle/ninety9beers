@@ -1,17 +1,76 @@
-<div id="about"  class="container spacer">
-<h1>Edit API Beer</h1>
-
-<%= form_tag "/beers/#{@beer.id}", multipart: true, method: :patch do %>
-  <div>
-    <%= label_tag :tap %>
-    <%= select_tag(:tap, options_for_select(['Tap', 'Bottled'])) %>
+<div id="beershow"  class="container spacer about"> 
+  <div class="border-beer-div">
+    <div class="panel-heading text-center">
+      <img src="<%= @api_beer.beer.beer_label %>">
+    </div>
+    <div class="panel-body text-center">
+      <%= @api_beer.beer.beer_name %>
+    </div>
+      <table class="table">
+        <tr>
+          <th>Style</th>
+            <td><%= @api_beer.beer.beer_style %></td>
+        </tr>
+        <tr>
+          <th>ABV</th>
+            <td><%= @api_beer.beer.beer_abv %></td>
+        </tr>
+        <tr>
+          <th>IBU</th>
+            <td><%= @api_beer.beer.beer_ibu %></td>
+        </tr>
+        <tr>
+          <th>Brewery</th>
+            <td><%= @api_beer.beer.brewery.brewery_name %></td>
+        </tr>
+        <tr>
+          <th>Description</th>
+            <td><%= @api_beer.beer.beer_description %></td>
+        </tr>
+      </table>
+      <p class="drankit"><i class="fa fa-pencil" aria-hidden="true"></i>Edit</p>
+      <div id="beermug">
+        <%= form_tag "/beers/#{@beer.id}", multipart: true, method: :patch do %>
+          <div class="form-group">
+            <%= label_tag "Rate This Beer" %>
+            <%= select_tag 'stars_dropdown', 
+              '<option value="" selected disabled hidden></option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>'.html_safe, class: "stars_show" %>
+          </div>
+          <div class="form-group">
+            <%= label_tag :tap, "Tap/Bottled" %>
+            <%= select_tag(:tap, options_for_select(['Tap', 'Bottled'])) %>
+          </div>
+          <div class="form-group" %>
+            <% if @beer.image.url.present? %>
+              <%= image_tag @beer.image_url(:preview), class: "user-box" %>
+              <p class="help-block">Remove Image?
+               <%= check_box_tag :remove_image, class: "checkbox-inline" %>
+              </p>
+            <% else %>
+              <%= label_tag "Upload Your Image" %>
+              <%= file_field_tag :image, class: "input-sm" %>
+            <% end %>
+          </div>
+          <div>
+            <%= submit_tag "Update", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+      <%= link_to "/users/#{current_user.id}" do %>
+        <i class="fa fa-angle-double-left" aria-hidden="true"></i> Back To Trophy Wall
+      <% end %>
   </div>
-  <div>
-    <%= label_tag :image %><br>
-    <%= file_field_tag :image %>
-  </div>
-  <div>
-    <%= submit_tag 'Edit My Beer' %>
-  </div>
-<% end %>
 </div>
+
+<% if current_user && current_user.beers.include?(@beer) && @beer.get_rating(current_user) %>
+  <script type="text/javascript">
+    $(window).bind("load", function() {
+      $('.stars_show').barrating('set', <%= @beer.get_rating(current_user).rating.to_i %>);
+    });
+  </script>
+<% end %>
