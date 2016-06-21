@@ -3,14 +3,7 @@ class Beer < ActiveRecord::Base
   
   belongs_to :custom_beer
   belongs_to :user
-  has_many :ratings
-  accepts_nested_attributes_for :ratings
-  validates_associated :ratings
   mount_uploader :image, BeerImageUploader
-
-  def get_rating(user)
-    rating = Rating.find_by(user_id: user.id, beer_id: self.id)
-  end
 
   def tap_convert
     if tap

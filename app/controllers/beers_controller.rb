@@ -18,8 +18,8 @@ class BeersController < ApplicationController
 
   def create
     params[:tap] == "Tap" ? tap_param = true : tap_param = false 
-    @beer = Beer.new(beer_name: params[:beer_name], api_id: params[:api_id], user_id: current_user.id, tap: tap_param, image: params[:image])
-    @beer.ratings.build(user_id: current_user.id, beer_id: @beer.id, rating: params[:stars_dropdown])
+    @beer = Beer.new(beer_name: params[:beer_name], api_id: params[:api_id], user_id: current_user.id, tap: tap_param, image: params[:image], rating: params[:stars_dropdown])
+    # @beer.ratings.build(user_id: current_user.id, beer_id: @beer.id, rating: params[:stars_dropdown])
     
     if @beer.save
       flash[:success] = 'Beer was added!'
@@ -41,7 +41,7 @@ class BeersController < ApplicationController
   def update
      @beer = Beer.find(params[:id])
      params[:tap] == "Tap" ? tap_param = true : tap_param = false 
-     if @beer.update(tap: tap_param, image: params[:image])
+     if @beer.update(tap: tap_param, image: params[:image], rating: params[:stars_dropdown])
       flash[:success] = 'The beer was edited!'
       # @beer.ratings.update(user_id: current_user.id, beer_id: @beer.id, rating: params[:stars_dropdown])
       @beer.create_activity :update, owner: current_user

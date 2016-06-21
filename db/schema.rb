@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160621005619) do
+ActiveRecord::Schema.define(version: 20160621042325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20160621005619) do
     t.integer  "custom_beer_id"
     t.string   "image"
     t.string   "beer_name"
+    t.integer  "rating"
   end
 
   add_index "beers", ["api_id"], name: "index_beers_on_api_id", using: :btree
@@ -58,14 +59,6 @@ ActiveRecord::Schema.define(version: 20160621005619) do
     t.datetime "updated_at"
     t.string   "brewery"
     t.string   "image"
-  end
-
-  create_table "overall_averages", force: :cascade do |t|
-    t.integer  "rateable_id"
-    t.string   "rateable_type"
-    t.float    "overall_avg",   null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "ratings", force: :cascade do |t|
