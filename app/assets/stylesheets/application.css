@@ -17,6 +17,7 @@
  *= require set
  *= require style
  *= require stars
+ *= require ionicons
  *= require_tree .
  *= require_self
  */

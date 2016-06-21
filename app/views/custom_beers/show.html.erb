@@ -1,34 +1,70 @@
-<div id="about"  class="container spacer">
-<table>
-  <tr>
-    <th>Beer Name</th>
-    <th>Label</th>
-    <th>Style</th>
-    <th>ABV</th>
-    <th>IBU</th>
-    <th>Brewery</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td><%= @custom_beer.name %></td>
-    <td><%= @custom_beer.style %></td>
-    <td><%= @custom_beer.abv %></td>
-    <td><%= @custom_beer.ibu %></td>
-    <td><%= @custom_beer.brewery %></td>
-    <td><%= @custom_beer.description %></td>
-  </tr>
-</table>
-
-
-<% if current_user && current_user.beers.include?(@general_beer) %>
-  <p>Tap/Bottled: <%= @general_beer.tap_convert %></p>
-  <p>Location Drank: </p>
-   <p>My Image:
-    <%= image_tag @general_beer.image_url(:preview).to_s %>
-  </p>
-    <div>
-      <%= link_to "Edit Beer", "/custom_beers/#{@custom_beer.id}/edit" %>
-      <%= link_to "Delete Beer", "/custom_beers/#{@custom_beer.id}", method: :delete, data: {confirm: "Are you sure?"}  %>
-    </div>
+<div id="custombeer-show" class="container spacer">
+  <div class="border-beer-div">
+      <table class="table">
+        <tr>
+          <td colspan="2"><div class="custombeer-box"><%= image_tag @beer.image_url(:preview) %></div></td>
+        </tr>
+        <tr>
+          <td colspan="2" class="panel-body text-center"><%= @custom_beer.name %></td>
+        </tr>
+        <tr>
+          <th>Style</th>
+            <td><%= @custom_beer.style %></td>
+        </tr>
+        <tr>
+          <th>ABV</th>
+            <td><%= @custom_beer.abv %></td>
+        </tr>
+        <tr>
+          <th>IBU</th>
+            <td><%= @custom_beer.ibu %></td>
+        </tr>
+        <tr>
+          <th>Brewery</th>
+            <td><%= @custom_beer.brewery %></td>
+        </tr>
+        <tr>
+          <th>Description</th>
+            <td><%= @custom_beer.description %></td>
+        </tr>
+      <% if current_user && current_user.beers.include?(@beer) %>
+          <tr>
+            <th>Tap/Bottled</th>
+              <td><%= @beer.tap_convert %></td>
+          </tr>
+          <tr>
+            <th>My Rating</th>
+              <td><%= select_tag 'stars_dropdown', 
+          '<option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>'.html_safe, class: "stars_show" %></td>
+          </tr>
+          <tr>
+            <td colspan="2" class="text-center">
+              <%= link_to "/custom_beers/#{@custom_beer.id}/edit" do %>
+                <i class="fa fa-pencil" aria-hidden="true"></i> Edit   
+              <% end %>
+               <%= link_to "/custom_beers/#{@custom_beer.id}", method: :delete, data: {confirm: "Are you sure?"} do %>
+                <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
+              <% end %>
+            </td>
+          </tr>
+        </table>
+      <%= link_to "/users/#{current_user.id}" do %>
+        <i class="fa fa-angle-double-left" aria-hidden="true"></i> Back To Trophy Wall
+        <% end %>
+      <% else %>
+        <p class="drankit">Please sign up to add beers!</p>
+      <% end %>
+  </div>
+</div> 
+<% if current_user && current_user.beers.include?(@beer) && @beer.rating %>
+  <script type="text/javascript">
+    $(window).bind("load", function() {
+      $('.stars_show').barrating('set', <%= @beer.rating %>);
+      $('.stars_show').barrating('readonly', true);
+    });
+  </script>
 <% end %>
-</div>

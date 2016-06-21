@@ -9,13 +9,11 @@ class CustomBeersController < ApplicationController
     @custom_beer.save
 
     params[:tap] == "Tap" ? tap_param = true : tap_param = false 
-    @beer = Beer.new(custom_beer_id: @custom_beer.id, user_id: current_user.id, tap: tap_param, image: params[:image])
+    @beer = Beer.new(custom_beer_id: @custom_beer.id, user_id: current_user.id, tap: tap_param, image: params[:image], rating: params[:stars_dropdown])
     if @beer.save
       flash[:success] = 'The beer was added to Beer Rack!'
       @custom_beer.create_activity :create, owner: current_user
-      @rating = Rating.new(user_id: current_user.id, beer_id: @beer.id, rating: params[:stars_dropdown])
-      @rating.save
-      
+
       redirect_to "/users/#{current_user.id}"
     else
       redirect_to "/custom_beers/new"
@@ -38,9 +36,10 @@ class CustomBeersController < ApplicationController
 
      @beer = @custom_beer.beer
      params[:tap] == "Tap" ? tap_param = true : tap_param = false 
-    if @beer.update(custom_beer_id: @custom_beer.id, tap: params[:tap], image: params[:image])
+    if @beer.update(custom_beer_id: @custom_beer.id, tap: tap_params, image: params[:image], rating: params[:stars_dropdown])
       flash[:success] = 'The beer was edited!'
       @custom_beer.create_activity :update, owner: current_user
+
       redirect_to "/custom_beers/#{@custom_beer.id}"
     else
       redirect_to "custom_beers/edit"

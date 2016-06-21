@@ -1,8 +1,9 @@
 // Place all the styles related to the beers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-img.raty-cancel {
-  display: none;
+
+.update-button {
+  margin:  20px 0px;
 }
 
 .border-beer-div {
@@ -41,13 +42,13 @@ img.raty-cancel {
   display: inline-block;
 }
 
-#beermug {
+#beeredit {
   margin: 0 auto;
-  width: 400px;
+  width: 35%;
   text-align: center;
 }
 
-#beermug a {
+#beeredit a {
   padding: 0px 0px;
   word-wrap: normal;
   display: inline-block;

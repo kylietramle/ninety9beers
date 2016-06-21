@@ -29,13 +29,9 @@ class Beer < ActiveRecord::Base
     end
   end
 
-  # def self.find_api_beer(id)
-  #   if Beer.find_by(api_id: id)
-  #     return Beer.find_by(api_id: id)
-  #   else
-  #     return Untappd::Beer.info(id)
-  #   end
-  # end
-
+  def remove_image=(val)
+    image_will_change! if val
+    super
+  end
 
 end

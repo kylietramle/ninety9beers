@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem "font-ionicons-rails"
 gem 'thin'
 gem 'jquery-turbolinks'
 gem 'ratyrate'

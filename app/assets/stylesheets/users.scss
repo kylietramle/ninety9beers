@@ -16,7 +16,8 @@
 }
 
 .user-box {
-  margin: 10px;
+  margin: 20px 20px;
+
   width: 200px;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
   border-radius: 7px;
@@ -28,6 +29,10 @@
   }
 
   .fa {
+    padding: 0px 5px;
+  }
+
+  .icon {
     padding: 0px 5px;
   }
 
