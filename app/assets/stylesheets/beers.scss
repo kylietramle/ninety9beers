@@ -20,7 +20,6 @@ img.raty-cancel {
 // Beer Info Table
 #beershow .panel-heading {
   border: 1px solid #e89f10;
-  border-bottom: none;
 }
 
 #beershow table, th, td {
@@ -43,12 +42,9 @@ img.raty-cancel {
 }
 
 #beermug {
-  background: url('/assets/beermug8.png') no-repeat center;
-  background-size: contain;
-  height: 327px;
-  width: 475px;
-  margin-top: -20px;
-  padding: 77px;
+  margin: 0 auto;
+  width: 33%;
+  text-align: center;
 }
 
 #beermug a {

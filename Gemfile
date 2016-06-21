@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'thin'
 gem 'jquery-turbolinks'
 gem 'ratyrate'
 gem "font-awesome-rails"

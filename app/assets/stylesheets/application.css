@@ -20,10 +20,15 @@
  *= require_tree .
  *= require_self
  */
- .alert {
-  margin-top: 80px;
-  margin-bottom: -85px;
- }
+
+.navbar-inverse .navbar-nav>li>a {
+    color: #fdc82e;
+    font-weight: bold;
+}
+
+.navbar-inverse .navbar-nav>li>a:hover {
+    color: #FFF;
+}
 
 h3.title {
   font-size: 45px;

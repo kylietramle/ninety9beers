@@ -4,10 +4,18 @@
       <div class="col-xs-12 col-sm-4 text-center">
         <%= image_tag @user.image_url(:preview), class: "user-box" %>
       </div>
-      <div class="col-xs-12 col-sm-8">
+      <div class="col-xs-12 col-sm-8 user-details">
         <h2><%= @user.full_name %></h2>
         <p><i class="fa fa-home" aria-hidden="true"></i><strong>Location: </strong><%= @user.location %></p>
         <p><i class="fa fa-beer" aria-hidden="true"></i><strong>Total Beers Added: </strong><%= @user.beers.count %></p>
+        <% if @user.beers.count == 0 %>
+            <%= link_to "/beers" do %>
+              <i class="fa fa-search" aria-hidden="true"></i> Search For Beers
+            <% end %>
+            <%= link_to "/custom_beers/new" do %>
+              <i class="fa fa-plus" aria-hidden="true"></i> Add Your Own Beer
+            <% end %>
+        <% end %>
       </div> 
     </div>
     <div class="row">

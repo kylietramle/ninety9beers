@@ -18,7 +18,7 @@ class BeersController < ApplicationController
 
   def create
     params[:tap] == "Tap" ? tap_param = true : tap_param = false 
-    @beer = Beer.new(api_id: params[:api_id], user_id: current_user.id, tap: tap_param, image: params[:image])
+    @beer = Beer.new(beer_name: params[:beer_name], api_id: params[:api_id], user_id: current_user.id, tap: tap_param, image: params[:image])
     @beer.ratings.build(user_id: current_user.id, beer_id: @beer.id, rating: params[:stars_dropdown])
     
     if @beer.save

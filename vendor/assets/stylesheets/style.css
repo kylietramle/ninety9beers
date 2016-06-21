@@ -47,7 +47,6 @@ p{font-size:1em;line-height: 1.7em;}
 #head,.carousel{margin-top: 0;}
 
 #home{padding-top: 6em;}
-#search{background: url('/assets/beerglasses4.png') no-repeat center;}
 
 /*about*/
 .about.spacer{padding-left: 4em; padding-right: 4em;padding-bottom: 0;}
@@ -68,6 +67,7 @@ p{font-size:1em;line-height: 1.7em;}
 
 .footer{background-color: #632b00; color: #fff; font-size: 1em;color: #aaa; padding:30px;}
 .footer a{color: #fdc82e; }
+.footer a:hover{color: #FFF; }
 
 .gototop{position: fixed;bottom: 20px; right: 20px;background: rgba(0,0,0,0.5);padding: 10px;color: #fff;}
 .gototop i{line-height: 0.5em;}

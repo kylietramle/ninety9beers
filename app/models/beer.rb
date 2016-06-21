@@ -24,8 +24,7 @@ class Beer < ActiveRecord::Base
     if custom_beer_id
       return custom_beer.name
     else
-      api_beer = Untappd::Beer.info(api_id)
-      return api_beer.beer.beer_name
+      return beer_name
     end
   end
 

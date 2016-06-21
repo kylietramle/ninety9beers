@@ -31,6 +31,12 @@
     padding: 0px 5px;
   }
 
+  .user-details {
+    a {
+    padding-right: 20px;
+    }
+  }
+
 .beer-box {
   width: 100px;
   height: 100px;
@@ -46,12 +52,14 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    height: 100%;
-    width: auto;
+    height: auto;
+    width: 100%;
+    clear: both;
     -webkit-transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
         transform: translate(-50%,-50%);
     }
+
   
 #user .col-md-3 {
     margin-top: 10px;
@@ -66,6 +74,9 @@
       font-size: 11px;
       text-decoration: none;
       color:  #2c5479;
+      display: block;
+      clear: both;
+      padding-top: 7px;
     }
 }
 
