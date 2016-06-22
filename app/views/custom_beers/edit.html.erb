@@ -21,8 +21,15 @@
                 <option value="5">5</option>'.html_safe, class: "stars_show" %>
         </div>
         <div class="form-group">
-          <%= label_tag :image %><br>
-          <%= file_field_tag :image, class: "input-sm" %>
+          <% if @beer.image.url.present? %>
+            <%= image_tag @beer.image_url(:preview), class: "user-box" %>
+            <p class="help-block">Remove Image?
+             <%= check_box_tag :remove_image, class: "checkbox-inline" %>
+            </p>
+          <% else %>
+            <%= label_tag "Upload Your Image" %>
+            <%= file_field_tag :image, class: "input-sm" %>
+          <% end %>
         </div>
         <div class="form-group">
           <%= label_tag :style %>

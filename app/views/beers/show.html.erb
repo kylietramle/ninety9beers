@@ -80,7 +80,7 @@
             <%= select_tag(:tap, options_for_select(['Tap', 'Bottled'])) %>
           </div>
           <div class="form-group" %>
-            <%= label_tag "Upload Your Image" %>
+            <%= label_tag "Upload Beer Image" %>
             <%= file_field_tag :image, class: "input-sm" %>
           </div>
           <%= hidden_field_tag(:api_id, params[:id]) %>
