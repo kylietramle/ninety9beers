@@ -78,7 +78,10 @@
 .beer-alert {
   margin-top: 80px;
   margin-bottom: -90px;
+  z-index: 1001;
+  position: relative;
 }
+
 
 .update-button {
   margin:  20px 0px;

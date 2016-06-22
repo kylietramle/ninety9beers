@@ -10,17 +10,9 @@
         <p><i class="icon beer ion-beer"></i><strong>Total Beers Added: </strong><%= @user.beers.count %></p>
         <%= link_to "/beers" do %>
           <i class="fa fa-search" aria-hidden="true"></i> Search For Beers
-            <% end %>
-            <%= link_to "/custom_beers/new" do %>
+        <% end %>
+        <%= link_to "/custom_beers/new" do %>
           <i class="fa fa-plus" aria-hidden="true"></i> Add Your Own Beer
-            <% end %>
-        <% if @user.beers.count == 0 %>
-            <%= link_to "/beers" do %>
-              <i class="fa fa-search" aria-hidden="true"></i> Search For Beers
-            <% end %>
-            <%= link_to "/custom_beers/new" do %>
-              <i class="fa fa-plus" aria-hidden="true"></i> Add Your Own Beer
-            <% end %>
         <% end %>
       </div> 
     </div>
@@ -47,3 +39,6 @@
     <div class="text-center"><%= paginate @paginable_beers %></div>
   </div>
 </div>
+
+
+

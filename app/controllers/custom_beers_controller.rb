@@ -26,6 +26,10 @@ class CustomBeersController < ApplicationController
   end
 
   def new
+    unless current_user
+      redirect_to "/beers"
+      flash[:warning] = 'Please sign up to add beers!'
+    end
   end
 
   def update
