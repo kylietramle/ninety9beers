@@ -27,7 +27,13 @@
             <% end %>
           </div>
           <div><%= link_to beer.name, beer.url %></div>
-          <div><%=  %></div>
+          <div>
+          <% (1..beer.rating).each do |rating| %>
+            <i class="icon ion-beer"></i>
+          <% end %>
+              <%= hidden_field_tag :beer_rating, beer.rating, class: "stars_rating" %>
+            </div>
+
           <div class="clearfloat"></div>
         </div>
       <% end %> 
