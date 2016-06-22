@@ -1,6 +1,7 @@
 class Beer < ActiveRecord::Base
   include PublicActivity::Common
-  
+  validates :rating, :presence => { :message => "Rating is required!" }
+
   belongs_to :custom_beer
   belongs_to :user
   mount_uploader :image, BeerImageUploader

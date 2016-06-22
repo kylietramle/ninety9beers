@@ -9,7 +9,7 @@
         </div>
         <div class="form-group">
           <%= label_tag :tap %>
-          <%= select_tag(:tap, options_for_select(['Tap', 'Bottle'])) %>
+          <%= select_tag(:tap, options_for_select(['Tap', 'Bottled'])) %>
         </div>
         <div class="form-group">
           <%= label_tag "Rate This Beer" %>
@@ -27,7 +27,7 @@
              <%= check_box_tag :remove_image, class: "checkbox-inline" %>
             </p>
           <% else %>
-            <%= label_tag "Upload Your Image" %>
+            <%= label_tag "Upload Beer Image" %>
             <%= file_field_tag :image, class: "input-sm" %>
           <% end %>
         </div>

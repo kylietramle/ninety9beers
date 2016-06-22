@@ -21,8 +21,13 @@
     <div class="row">
       <% @paginable_beers.each do |beer| %>
         <div class="col-md-3 text-center">
-          <div class="beer-box"><%= image_tag beer.image_url(:preview) %></div>
+          <div class="beer-box">
+            <%= link_to beer.url do %>
+            <%= image_tag beer.image_url(:preview) %>
+            <% end %>
+          </div>
           <div><%= link_to beer.name, beer.url %></div>
+          <div><%=  %></div>
           <div class="clearfloat"></div>
         </div>
       <% end %> 

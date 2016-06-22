@@ -1,9 +1,9 @@
 <div id="editpassword"  class="container spacer about">
+<%= devise_error_messages! %>
   <div class="border-form-div">
     <h3 class="title">Change Your Password</h3>
 
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-      <%= devise_error_messages! %>
       <%= f.hidden_field :reset_password_token %>
 
       <div class="form-group">

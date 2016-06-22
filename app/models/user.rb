@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
-  
+  validates :first_name, :last_name, :birthdate, presence: true
+  validates :email, uniqueness: true
+
   has_many :beers, -> { order "created_at DESC" }
   mount_uploader :image, AvatarUploader
   # Include default devise modules. Others available are:
