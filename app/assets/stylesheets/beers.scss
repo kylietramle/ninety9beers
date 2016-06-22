@@ -2,6 +2,55 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// Index
+#search4{
+  width: 100%;
+  margin-top: 50px;
+  background-image:
+  linear-gradient(
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5)
+  ),
+    url(/assets/beerfridge.png);
+  background-size: 100% auto;
+}
+
+#beer99{
+  color: white;
+  font-size: 70px;
+  font-weight: bold;
+  text-shadow: 1px 0px 1px #ccc, 0px 2px 2px #000;
+}
+
+#collection{
+  color: white;
+  font-size: 30px;
+  text-shadow: 1px 0px 1px #ccc, 0px 2px 2px #000;
+}
+
+#or{margin-top:1em;
+}
+
+.buttons {
+  text-align: center;
+  padding: 20px;
+}
+
+.last-div {
+  text-align: center;
+  width: 35%;
+  margin: 0 auto;
+  padding-bottom: 50px;
+  padding-top: 30px;
+}
+
+.index-heading {
+  color: #632b00;
+  font-size: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
 // Search Result
 #search-result .panel-body {
   color: #8a6d3b;
@@ -14,7 +63,7 @@
 }
 
 .border-search-div {
-  max-width: 350px;
+  max-width: 370px;
   padding: 19px 29px 29px;
   margin: 50px auto 50px;
   background-color: #fcf8e3;
@@ -51,9 +100,6 @@
   height: 300px;
 }
 // Beer Info Table
-#beershow .panel-heading {
-  border: 1px solid #e89f10;
-}
 
 #beershow table, th, td {
   border: 1px solid #e89f10;

@@ -1,19 +1,12 @@
 <div id="beershow"  class="container spacer about">
-<% if @beer && @beer.errors.any? %>
-    <ul>
-       <% @beer.errors.full_messages.each do |message| %>
-<li><%= message %></li>
-<% end %>
-    </ul>
-    <% end %>
   <div class="border-beer-div">
-    <div class="panel-heading text-center">
-      <img src="<%= @api_beer.beer.beer_label %>">
-    </div>
-    <div class="panel-body text-center">
-      <%= @api_beer.beer.beer_name %>
-    </div>
-      <table class="table">
+    <table class="table">
+        <tr>
+          <td colspan="2"><div align="center"><img src="<%= @api_beer.beer.beer_label %>"></div></td>
+        </tr>
+        <tr>
+          <td colspan="2" class="panel-body text-center"><%= @api_beer.beer.beer_name %></td>
+        </tr>
         <tr>
           <th>Style</th>
             <td><%= @api_beer.beer.beer_style %></td>

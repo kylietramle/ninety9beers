@@ -56,7 +56,9 @@
         </div>
     <% end %>
 
-    <%= link_to "Back", "/custom_beers/#{@custom_beer.id}" %>
+    <%= link_to "/custom_beers/#{@custom_beer.id}" do %>
+      <i class="fa fa-angle-double-left" aria-hidden="true"></i> Back
+    <% end %>
   </div>
 </div>
 
