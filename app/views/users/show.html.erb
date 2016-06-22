@@ -7,7 +7,7 @@
       <div class="col-xs-12 col-sm-8 user-details">
         <h2><%= @user.full_name %></h2>
         <p><i class="fa fa-home" aria-hidden="true"></i><strong>Location: </strong><%= @user.location %></p>
-        <p><i class="icon ion-beer"></i><strong>Total Beers Added: </strong><%= @user.beers.count %></p>
+        <p><i class="icon beer ion-beer"></i><strong>Total Beers Added: </strong><%= @user.beers.count %></p>
         <% if @user.beers.count == 0 %>
             <%= link_to "/beers" do %>
               <i class="fa fa-search" aria-hidden="true"></i> Search For Beers
@@ -29,7 +29,7 @@
           <div><%= link_to beer.name, beer.url %></div>
           <div>
           <% (1..beer.rating).each do |rating| %>
-            <i class="icon ion-beer"></i>
+            <i class="icon stars ion-android-star"></i>
           <% end %>
               <%= hidden_field_tag :beer_rating, beer.rating, class: "stars_rating" %>
             </div>

@@ -1,6 +1,6 @@
 <% if activity.trackable && activity.trackable.api_id %>
   <% beer = activity.trackable %>
-  made changes to <%= link_to beer.name, "/beers/#{beer.api_id}" %> on the Beer Rack.
+  updated <%= link_to beer.name, "/beers/#{beer.api_id}" %> on the Trophy Wall.
 <% else %>
    made changes to a beer, which has now been removed.
 <% end %>

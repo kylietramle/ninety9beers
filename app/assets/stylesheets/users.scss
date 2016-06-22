@@ -32,10 +32,14 @@
     padding: 0px 5px;
   }
 
-  .icon {
+  .beer {
     padding: 0px 5px;
   }
-
+  
+  .stars {
+    padding: 0px 0px;
+    color: #fdc82e;
+  }
   .user-details {
     a {
     padding-right: 20px;
@@ -67,10 +71,10 @@
 
   
 #user .col-md-3 {
-    margin-top: 10px;
+    margin-top: 5px;
     padding-top: 5px;
     padding-bottom: 5px;
-    min-height: 180px;
+    min-height: 200px;
     border: 30px solid transparent;
     -webkit-border-image: url('/assets/wood.jpg') 100 100;
     border-top: 0;
@@ -89,6 +93,7 @@
   font-weight: bold;
   margin-top: 35px;
 }
+
 
 .clearfloat {
   clear: both;

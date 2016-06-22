@@ -1,14 +1,17 @@
-<div class="container spacer about">
-  <table>
-    <tr>
-      <th>Beer Name</th>
-    </tr>
-    <tr>
-     <% @beers.beers.items.each do |beer| %> 
-      <td><%= link_to beer.beer.beer_name, "/beers/#{beer.beer.bid}" %></td>
-    </tr>
+<div id="search-result" class="container spacer about">
+  <div class="border-search-div">
+    <table class="table">
+      <tr>
+        <td colspan="2" class="panel-body text-center">Beer Name</td>
+      </tr>
+      <% @beers.beers.items.each do |beer| %> 
+        <tr>
+          <td class="beer-link" align="center"><%= link_to beer.beer.beer_name, "/beers/#{beer.beer.bid}" %></td>
+        </tr>
       <% end %>
-  </table>
+    </table>
+    <%= link_to "/beers" do %>
+      <i class="fa fa-angle-double-left" aria-hidden="true"></i> Back
+    <% end %>
+  </div>
 </div>
-
-

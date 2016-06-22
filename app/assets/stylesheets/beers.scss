@@ -1,6 +1,31 @@
 // Place all the styles related to the beers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Search Result
+#search-result .panel-body {
+  color: #8a6d3b;
+  font-size: 30px;
+  font-weight: bold;
+  background-color: #fdf5c9;
+}
+#search-result td {
+  padding: 5px 10px;
+}
+
+.border-search-div {
+  max-width: 350px;
+  padding: 19px 29px 29px;
+  margin: 50px auto 50px;
+  background-color: #fcf8e3;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+          box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+
 .beer-alert {
   margin-top: 80px;
   margin-bottom: -90px;
@@ -22,6 +47,9 @@
      -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
           box-shadow: 0 1px 2px rgba(0,0,0,.05);
 }
+.addbeer {
+  height: 300px;
+}
 // Beer Info Table
 #beershow .panel-heading {
   border: 1px solid #e89f10;
@@ -40,15 +68,19 @@
   background-color: #fdf5c9;
 }
 
-#beershow a {
-  padding: 0px 5px;
+  .fa {
+  padding: 0px 3px;
   word-wrap: normal;
   display: inline-block;
 }
 
+.stars_show {
+  padding: 0px 0px;
+}
+
 #beeredit {
   margin: 0 auto;
-  width: 35%;
+  width: 230px;
   text-align: center;
 }
 
@@ -70,10 +102,20 @@
 }
 
 .btn-newbeer {
-  background: transparent;
+  background: #632b00;
   border: 1px solid #e89f10;
   border-radius: 5px;
   padding: 0.7em 2em;
   text-transform: uppercase;
   color: #e89f10;
+  width: 200px;
+  margin-top: 100px;
+}
+.btn-newbeer:hover {
+  background: #fdc82e;
+  border: 1px solid #e89f10;
+  border-radius: 5px;
+  padding: 0.7em 2em;
+  text-transform: uppercase;
+  color: #FFF;
 }

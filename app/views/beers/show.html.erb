@@ -92,7 +92,7 @@
           <%= hidden_field_tag(:api_id, params[:id]) %>
           <%= hidden_field_tag(:beer_name, @api_beer.beer.beer_name) %>
           <div>
-            <%= submit_tag "Add To Wall", class: "btn btn-primary-100" %>
+            <%= submit_tag "Add To Wall", class: "btn btn-primary" %>
           </div>
           <% end %>
           <%= link_to "Add A Custom Beer", "/custom_beers/new", :method => "get" %>

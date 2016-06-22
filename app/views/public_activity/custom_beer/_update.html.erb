@@ -1,7 +1,7 @@
 <% if activity.trackable && activity.trackable_type == "CustomBeer" %>
   <% id = activity.trackable.id %>
   <% custom_beer = CustomBeer.find_by(id: id) %>
-  made changes to <%= link_to custom_beer.name, "/custom_beers/#{id}" %> on the Beer Rack.
+  updated <%= link_to custom_beer.name, "/custom_beers/#{id}" %> on the Trophy Wall.
 <% else %>
   made changes to a beer, which has now been removed.
 <% end %>
