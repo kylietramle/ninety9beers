@@ -5,7 +5,9 @@
     <div class="activity">
       <div class="list-group-item clearfix">
         <div class="news-avatar">
-          <%= link_to image_tag activity.owner.image_url(:preview) %>
+          <%= link_to "/users/#{activity.owner.id}" do %>
+            <%= image_tag activity.owner.image_url(:preview) %>   
+          <% end %>
         </div>
         <span>
           <%= link_to activity.owner.first_name, activity.owner %>
@@ -15,5 +17,3 @@
     </div>
   <% end %>
 </div>
-
-

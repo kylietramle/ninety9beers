@@ -21,8 +21,12 @@
         <div class="col-md-3 text-center">
           <div class="beer-box">
             <%= link_to beer.url do %>
-            <%= image_tag beer.image_url(:preview) %>
+            <% if beer.image.url.present? %>
+              <%= image_tag beer.image_url(:preview) %>
+            <% else %>
+              <%= image_tag "/assets/genglass.png" %>
             <% end %>
+          <% end %>
           </div>
           <div><%= link_to beer.name, beer.url %></div>
           <div>
