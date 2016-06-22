@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @paginable_beers = Kaminari.paginate_array(@user.beers).page(params[:page]).per(16)
+    @paginable_beers = Kaminari.paginate_array(@user.beers).page(params[:page]).per(12)
   end
 
   def edit
