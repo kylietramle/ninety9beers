@@ -28,8 +28,9 @@
   text-shadow: 1px 0px 1px #ccc, 0px 2px 2px #000;
 }
 
-#or{margin-top:1em;
-}
+#or {margin-top:1em;}
+
+.medium-spacer{padding: 4em 0;}
 
 .buttons {
   text-align: center;
@@ -38,17 +39,22 @@
 
 .last-div {
   text-align: center;
-  width: 35%;
+  width: 40%;
   margin: 0 auto;
   padding-bottom: 50px;
   padding-top: 30px;
 }
 
 .index-heading {
-  color: #632b00;
-  font-size: 30px;
+  color: #356823;
+  font-size: 25px;
   font-weight: bold;
   text-transform: uppercase;
+}
+
+.index-text {
+  font-size: 1em;
+  color: #555;
 }
 
 // Search Result

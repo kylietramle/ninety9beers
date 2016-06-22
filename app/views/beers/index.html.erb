@@ -4,11 +4,12 @@
     <h2 id="collection" class="text-center"> A collection of your favorite beers on your wall</h2>
   <div class="spacer"></div>
 </div>
-<div class="container spacer">
+<div class="container medium-spacer">
   <div class="col-sm-1"></div>
   <div class="col-sm-5 col-xs-8">
     <h2 class="index-heading text-center">Search for beers</h2>
-    <p>Was it Anchor Steam or Anchorage Brewing? Search a beer by name from a database created by beer drinkers like you. <p>Don't see your beer you're drinking right now? You can also add your custom beer to the database.</p>
+    <p class="index-text">Was it Anchor Steam or Anchorage Brewing? Search a beer by name from a database created by beer drinkers like you. 
+    <p class="index-text">Don't see your beer you're drinking right now? You can also add your custom beer to the database.</p>
   </div>
   <div class="col-sm-5 buttons col-xs-8">
     <%= form_tag '/beers/search', method: :post, class: "form-inline" do %>
@@ -21,30 +22,27 @@
     <%= link_to "Add Your Own Beer", "/custom_beers/new", class: "btn btn-primary btn-block" %>
   </div>
 </div>
-<hr>
-  <div class="container spacer">
+  <div class="container medium-spacer">
      <div class="col-sm-1"></div>
      <div class="col-sm-5 col-xs-8">
        <%= image_tag "rating.png", class: "img-responsive center-block" %>
      </div>
      <div class="col-sm-5 col-xs-8">
        <h2 class="index-heading text-center">Rate your favorite beers</h2>
-       <p> Did you just take a sip of an amazing balanced beer and want to note it for the next time? Or maybe it was too hoppy and you would prefer not to order it again. Rate it and add notes so you and your friends can see what you think of the beer.</p>
+       <p class="index-text"> Did you just take a sip of an amazing balanced beer and want to note it for the next time? Or maybe it was too hoppy and you would prefer not to order it again. Rate it and add notes so you and your friends can see what you think of the beer.</p>
      </div>
   </div>
-<hr>
- <div class="container spacer">
+ <div class="container medium-spacer">
     <div class="col-sm-1"></div>
     <div class="col-sm-5 col-xs-8">
       <h2 class="text-center index-heading">Collect your beers on a trophy wall</h2>
-       <p> You won't ever forget about a beer you've had. Every beer you rate is placed on your beer trophy wall for you to show off. You can browse the trophy wall of other beer lovers on 99 Beers.</p>
+       <p class="index-text"> You won't ever forget about a beer you've had. Every beer you rate is placed on your beer trophy wall for you to show off. Add a beer to join the public newsfeed.</p>
     </div>
     <div class="col-sm-5 col-xs-8">
       <%= image_tag "beerwall.png", class: "img-responsive center-block" %>
     </div>
 </div>
-<hr>
 <div class="last-div">
-  <h2 class="index-heading text-center">Ready to collect 99 Beers?</h2>
+  <h2 class="text-center">Ready to collect 99 Beers?</h2>
     <%= link_to "Sign Up", "/users/sign_up", class: "btn btn-primary btn-block" %>
 </div>

@@ -39,7 +39,7 @@
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav navbar-right scroll">
                   <% if user_signed_in? %>
-                  <li><%= link_to 'Home', '/beers' %></li>
+                  <li><%= link_to 'Home', '/home' %></li>
                   <li><%= link_to "News Feed", activities_path %></li>
                    <li><%= link_to "Trophy Wall", "/users/#{current_user.id}" %></li>
                   <li class="dropdown">

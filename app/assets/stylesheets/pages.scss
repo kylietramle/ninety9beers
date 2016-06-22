@@ -1,3 +1,17 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.beer-glass {
+  font-size: 280px;
+  color: #FDC82E;
+  text-shadow: 1px 0px 1px #ccc, 0px 2px 2px #eee;
+}
+
+.home-search {
+  font-size: 20px;
+}
+
+.small-spacer {
+  margin: 100px;
+}

@@ -1,0 +1,19 @@
+<div id="home"  class="container spacer">
+  <div class="border-beer-div">
+    <div class="row">
+      <div class="col-md-5 text-center"><i class="icon beer-glass ion-ios-pint"></i></div>
+      <div class="col-md-7 text-center">
+        <div class="small-spacer"></div>
+        <%= form_tag '/beers/search', method: :post, class: "form-inline" do %>
+        <div class="form-group">
+          <%= label_tag :beer_search, "Search For Beers", class:"home-search" %><br />
+          <%= text_field_tag :beer_search, "", placeholder: "Anchor Steam", class: "form-control" %>
+          <%= submit_tag "Search", class: "btn btn-primary btn-xs" %>
+        </div>
+        <% end %>
+        <p class="home-search">or</p>
+        <%= link_to "Add Your Own Beer", "/custom_beers/new", class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div>
