@@ -30,7 +30,7 @@
       </div>
 
       <div class="form-group">
-        <%= f.label :birthdate %><br />
+        <%= f.label :birthdate %><small class="text-muted">* Must be over 21</small><br />
         <%= f.date_select :birthdate, {order: [:month, :day, :year], prompt: { day: 'Select day', month: 'Select month', year: 'Select year' }, start_year: Date.today.year - 21, end_year: Date.today.year - 80}, class: "form-control-sm" %>
       </div>
 
