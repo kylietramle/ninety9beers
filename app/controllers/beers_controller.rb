@@ -10,10 +10,14 @@ class BeersController < ApplicationController
 
   def search
     searched_beer = params[:beer_search]
-    page = params[:page] || 1
-    per_page = 20
-  
-    @beers = Untappd::Beer.search(searched_beer)
+    
+    if params[:beer_search].blank? || @beers.nil?
+      flash[:danger] = 'Enter a beer name'
+
+      redirect_to "/home"
+    else
+      @beers = Untappd::Beer.search(searched_beer)
+    end
   end
 
   def create

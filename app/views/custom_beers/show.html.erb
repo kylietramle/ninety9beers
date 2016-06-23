@@ -2,7 +2,13 @@
   <div class="border-beer-div">
     <table class="table">
       <tr>
-        <td colspan="2"><div class="custombeer-box"><%= image_tag @beer.image_url(:preview) %></div></td>
+        <td colspan="2" class="text-center">
+        <% if @beer.image.url.present? %>
+          <div class="custombeer-box"><%= image_tag @beer.image_url(:preview) %></div>
+         <% else %>
+          <%= image_tag "/assets/genglass.png", class: "user-box" %>
+        <% end %>
+        </td>
       </tr>
       <tr>
         <td colspan="2" class="panel-body text-center"><%= @custom_beer.name %></td>
@@ -54,12 +60,10 @@
           </td>
         </tr>
       </table>
+    <% end %>
     <%= link_to "/users/#{current_user.id}" do %>
       <i class="fa fa-angle-double-left" aria-hidden="true"></i> Back To Trophy Wall
       <% end %>
-    <% else %>
-      <p class="drankit">Please sign up to add beers!</p>
-    <% end %>
   </div>
 </div> 
 
