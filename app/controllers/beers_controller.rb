@@ -9,14 +9,12 @@ class BeersController < ApplicationController
   end
 
   def search
-    searched_beer = params[:beer_search]
-    
-    if params[:beer_search].blank? || @beers.nil?
+    if params[:beer_search].blank?
       flash[:danger] = 'Enter a beer name'
 
       redirect_to "/home"
     else
-      @beers = Untappd::Beer.search(searched_beer)
+      @beers = Untappd::Beer.search(params[:beer_search])
     end
   end
 
