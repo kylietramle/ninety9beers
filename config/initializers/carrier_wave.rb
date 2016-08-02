@@ -2,8 +2,8 @@ require 'carrierwave/orm/activerecord'
 CarrierWave.configure do |config|
   config.fog_credentials = {
     provider:               'AWS',
-    aws_access_key_id:      ENV['S3_KEY'],
-    aws_secret_access_key:  ENV['S3_SECRET'],
+    aws_access_key_id:      Figaro.env.aws_access_key_id,
+    aws_secret_access_key:  Figaro.env.aws_secret_access_key,
   }
 
   # For testing, upload files to local `tmp` folder.
