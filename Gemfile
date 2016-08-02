@@ -3,9 +3,9 @@ source 'https://rubygems.org'
 gem "font-ionicons-rails"
 gem 'thin'
 gem 'jquery-turbolinks'
-gem 'ratyrate'
 gem "font-awesome-rails"
 gem 'public_activity'
+gem "figaro"
 
 gem 'carrierwave'
 gem'fog'
