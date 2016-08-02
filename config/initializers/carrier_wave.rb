@@ -2,8 +2,8 @@ require 'carrierwave/orm/activerecord'
 CarrierWave.configure do |config|
   config.fog_credentials = {
     provider:               'AWS',
-    aws_access_key_id:      Figaro.env.aws_access_key_id,
-    aws_secret_access_key:  Figaro.env.aws_secret_access_key,
+    aws_access_key_id:      ENV['S3_KEY'],
+    aws_secret_access_key:  ENV['S3_SECRET'],
   }
 
   # For testing, upload files to local `tmp` folder.
@@ -16,5 +16,5 @@ CarrierWave.configure do |config|
   end
 
   config.cache_dir        = "#{Rails.root}/tmp/uploads" # To let CarrierWave work on Heroku
-  config.fog_directory    = Figaro.env.aws_bucket_name
+  config.fog_directory    = ENV['S3_BUCKET_NAME']
 end
