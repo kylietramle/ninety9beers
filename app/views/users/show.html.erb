@@ -11,7 +11,7 @@
       <div class="col-xs-12 col-sm-8 user-details">
         <h2><%= @user.full_name %></h2>
         <p><i class="fa fa-home" aria-hidden="true"></i><strong>Location: </strong><%= @user.location %></p>
-        <p><i class="beer icon ion-beer"></i><strong>Total Beers Added: </strong><%= @user.beers.count %></p>
+        <p><i class="beer fa fa-beer"></i><strong>Total Beers Added: </strong><%= @user.beers.count %></p>
         <%= link_to "/home" do %>
           <i class="fa fa-search" aria-hidden="true"></i> Search For Beers
         <% end %>
