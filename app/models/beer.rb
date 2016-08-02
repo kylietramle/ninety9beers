@@ -1,6 +1,7 @@
 class Beer < ActiveRecord::Base
   include PublicActivity::Common
-  validates :rating, :presence => { :message => "Rating is required!" }
+  validates :rating, presence: true
+  validates :api_id, uniqueness: true
 
   belongs_to :custom_beer
   belongs_to :user

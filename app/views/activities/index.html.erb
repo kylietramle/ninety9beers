@@ -6,7 +6,11 @@
       <div class="list-group-item clearfix">
         <div class="news-avatar">
           <%= link_to "/users/#{activity.owner.id}" do %>
-            <%= image_tag activity.owner.image_url(:preview) %>   
+            <% if activity.owner.image_url %>
+              <%= image_tag activity.owner.image_url(:preview) %>
+            <% else %>
+              <%= image_tag "/assets/genuser.png" %>
+            <% end %>
           <% end %>
         </div>
         <span>

@@ -1,6 +1,7 @@
 class CustomBeersController < ApplicationController
+  before_action :find_custom_beer, only: [:show, :edit, :update, :destroy]
+
   def show
-    @custom_beer = CustomBeer.find_by(id: params[:id])
     @beer = @custom_beer.beer
   end
 
@@ -21,7 +22,6 @@ class CustomBeersController < ApplicationController
   end
 
   def edit
-    @custom_beer = CustomBeer.find_by(id: params[:id])
     @beer = @custom_beer.beer
   end
 
@@ -33,7 +33,6 @@ class CustomBeersController < ApplicationController
   end
 
   def update
-   @custom_beer = CustomBeer.find_by(id: params[:id])
    @custom_beer.update(name: params[:name], style: params[:style], abv: params[:abv], ibu: params[:ibu], brewery: params[:brewery], description: params[:description])
 
    @beer = @custom_beer.beer
@@ -58,9 +57,7 @@ class CustomBeersController < ApplicationController
   end
     
 
-  def destroy
-    @custom_beer = CustomBeer.find_by(id: params[:id])
-    
+  def destroy  
     if @custom_beer.beer.destroy
       flash[:success] = 'The beer was deleted!'
 
@@ -68,5 +65,11 @@ class CustomBeersController < ApplicationController
     else
       flash[:error] = 'An error occurred. Try deleting the beer again.'
     end
+  end
+
+  private
+  
+  def find_custom_beer
+    @custom_beer = CustomBeer.find_by(id: params[:id])
   end
 end

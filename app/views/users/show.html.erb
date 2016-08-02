@@ -2,7 +2,11 @@
   <div class="border-user-div">
     <div class="row">
       <div class="col-xs-12 col-sm-4 text-center">
-        <%= image_tag @user.image_url(:preview), class: "user-box" %>
+        <% if @user.image.url.present? %>
+          <%= image_tag @user.image_url(:preview), class: "user-box" %>
+        <% else %>
+          <%= image_tag "/assets/genuser.png", class: "user-box" %>
+        <% end %>
       </div>
       <div class="col-xs-12 col-sm-8 user-details">
         <h2><%= @user.full_name %></h2>

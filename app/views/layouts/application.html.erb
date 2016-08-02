@@ -51,7 +51,11 @@
                   </li>
                    <li>
                     <div class="profile-image">
-                      <%= image_tag current_user.image_url(:preview) %>
+                      <% if current_user.image_url %>
+                        <%= image_tag current_user.image_url(:preview) %>
+                      <% else %>
+                        <%= image_tag "/assets/genuser.png" %>
+                      <% end %>
                     </div>
                     </li>
                   <% else %>

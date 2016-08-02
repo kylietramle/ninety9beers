@@ -1,4 +1,5 @@
 class BeersController < ApplicationController
+  before_action :find_beer, only: [:edit, :update, :destroy]
   
   def index
   end
@@ -9,10 +10,15 @@ class BeersController < ApplicationController
   end
 
   def search
-    if params[:beer_search].blank?
+    if params[:beer_search].blank? && current_user
       flash[:danger] = 'Enter a beer name'
 
       redirect_to "/home"
+    elsif params[:beer_search].blank?
+      params[:beer_search].blank?
+      flash[:danger] = 'Enter a beer name'
+      
+      redirect_to "/beers"
     else
       @beers = Untappd::Beer.search(params[:beer_search])
     end
@@ -28,19 +34,16 @@ class BeersController < ApplicationController
       
       redirect_to "/users/#{current_user.id}"
     else
-
       flash[:danger] = 'Please choose a rating!'
       redirect_to "/beers/#{@beer.api_id}"
     end 
   end
 
   def edit
-     @beer = Beer.find(params[:id])
      @api_beer = Untappd::Beer.info(@beer.api_id)
   end
 
   def update
-    @beer = Beer.find(params[:id])
     params[:tap] == "Tap" ? tap_param = true : tap_param = false
 
     if params[:remove_image]
@@ -63,7 +66,6 @@ class BeersController < ApplicationController
   end
 
   def destroy
-    @beer = Beer.find(params[:id])
     if @beer.destroy
       flash[:success] = 'The beer was deleted!'
       redirect_to "/users/#{current_user.id}"
@@ -71,5 +73,11 @@ class BeersController < ApplicationController
       flash[:danger] = 'Error! Try again!'
       redirect_to "/beers/#{@beer.id}"
     end
+  end
+
+  private
+
+  def find_beer
+    @beer = Beer.find(params[:id])
   end
 end
