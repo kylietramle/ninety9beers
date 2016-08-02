@@ -11,10 +11,7 @@
  * file per style scope.
  *
  *= require font-awesome
- *= require animate
- *= require blueimp-gallery.min
  *= require bootstrap.min
- *= require set
  *= require style
  *= require stars
  *= require ionicons

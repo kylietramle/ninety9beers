@@ -13,9 +13,6 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
-//= require wow.min
 //= require bootstrap
-//= require touchSwipe.min
-//= require respond
 //= require stars
 //= require_tree .
