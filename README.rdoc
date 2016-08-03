@@ -1,28 +1,31 @@
-== README
+# 99 Beers
+----
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Built as Capstone project for ACLTC Bootcamp
+* Refer to [video](https://youtu.be/UqBOThK4WsM) for more details
 
-Things you may want to cover:
+## Overview
 
-* Ruby version
+>99 Beers is a web app that helps users keep track and rate their favorite beers bottles and drafts. Users can add their own pictures and see other's ratings through a newsfeed.
 
-* System dependencies
+![Welcome](https://github.com/kylietramle/ninety9beers/blob/master/app/assets/images/Screenshots/welcome.png)
 
-* Configuration
+## Tech
+* Ruby on Rails
+* JQuery
+* PostgreSQL
+* Bootstrap
+* Untappd API
+----
+## Usage
+1. Sign up for an account or use these credentials:
 
-* Database creation
+  username: steph@nba.com  
+  password: 12345678
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+2. Search for beers or add your own  
+![Beer Info](https://github.com/kylietramle/ninety9beers/blob/master/app/assets/images/Screenshots/beerinfo.png)
+3. Add to trophy wall by rating the beer, add your own pictures, and submit!  
+![Trophy Wall](https://github.com/kylietramle/ninety9beers/blob/master/app/assets/images/Screenshots/trophywall.png)  
+4. See what others drank and how they rate their beers:  
+![Bar Feed](https://github.com/kylietramle/ninety9beers/blob/master/app/assets/images/Screenshots/barfeed.png)
