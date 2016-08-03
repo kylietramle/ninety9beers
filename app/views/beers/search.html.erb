@@ -6,11 +6,7 @@
       </tr>
       <% @beers.beers.items.each do |beer| %> 
         <tr>
-          <% if beer.beer.beer_name.blank? %>
-            <%= "N/A" %>
-          <% else %>
             <td class="beer-link" align="center"><%= link_to beer.beer.beer_name, "/beers/#{beer.beer.bid}" %></td>
-          <% end %>
         </tr>
       <% end %>
     </table>
