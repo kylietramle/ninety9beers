@@ -16,11 +16,8 @@
 * Bootstrap
 * Untappd API
 
-## Usage
-1. Sign up for an account or use these credentials:
-
-  username: steph@nba.com  
-  password: 12345678
+## Features
+1. Sign up for an account.
 
 2. Search for beers or add your own  
 
