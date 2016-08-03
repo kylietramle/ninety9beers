@@ -24,7 +24,7 @@
 
 2. Search for beers or add your own  
 
-![Beer Info](https://github.com/kylietramle/ninety9beers/blob/master/app/assets/images/Screenshots/beerinfo.png)
+![Beer Info](https://github.com/kylietramle/ninety9beers/blob/master/app/assets/images/Screenshots/beerinfo.png)  
 3. Add to trophy wall by rating the beer, add your own pictures, and submit!  
 
 ![Trophy Wall](https://github.com/kylietramle/ninety9beers/blob/master/app/assets/images/Screenshots/trophywall.png)  
