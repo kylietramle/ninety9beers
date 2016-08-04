@@ -35,7 +35,7 @@
           <div><%= link_to beer.name, beer.url %></div>
           <div>
           <% (1..beer.rating).each do |rating| %>
-            <i class="icon stars ion-android-star"></i>
+            <i class="stars fa fa-star"></i>
           <% end %>
               <%= hidden_field_tag :beer_rating, beer.rating, class: "stars_rating" %>
             </div>
