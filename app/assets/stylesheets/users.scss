@@ -76,7 +76,7 @@
     padding-bottom: 0px;
     min-height: 220px;
     border: 30px solid transparent;
-    -webkit-border-image: url("https://s3.amazonaws.com/beerimages/uploads/assets/wood.jpg") 100 100;
+    -webkit-border-image: image-url("wood.jpg") 100 100;
     border-top: 0;
 
     a {
