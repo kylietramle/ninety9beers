@@ -5,7 +5,7 @@
         <% if @user.image.url.present? %>
           <%= image_tag @user.image_url(:preview), class: "user-box" %>
         <% else %>
-          <%= image_tag "/assets/genuser.png", class: "user-box" %>
+          <%= image_tag "genuser.png", class: "user-box" %>
         <% end %>
       </div>
       <div class="col-xs-12 col-sm-8 user-details">
@@ -28,7 +28,7 @@
             <% if beer.image.url.present? %>
               <%= image_tag beer.image_url(:preview) %>
             <% else %>
-              <%= image_tag "/assets/genglass.png" %>
+              <%= image_tag "genglass.png" %>
             <% end %>
           <% end %>
           </div>
