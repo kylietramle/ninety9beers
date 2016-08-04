@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem "font-ionicons-rails"
+gem 'ionicons-rails'
 gem 'thin'
 gem 'jquery-turbolinks'
 gem "font-awesome-rails"

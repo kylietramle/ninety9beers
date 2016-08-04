@@ -11,10 +11,10 @@
  * file per style scope.
  *
  *= require font-awesome
+ *= require ionicons
  *= require bootstrap.min
  *= require style
  *= require stars
- *= require ionicons
  *= require_tree .
  *= require_self
  */
