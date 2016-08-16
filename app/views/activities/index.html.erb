@@ -9,7 +9,7 @@
             <% if activity.owner.image_url %>
               <%= image_tag activity.owner.image_url(:preview) %>
             <% else %>
-              <%= image_tag "/assets/genuser.png" %>
+              <%= image_tag "https://s3.amazonaws.com/beerimages/uploads/assets/genuser.png" %>
             <% end %>
           <% end %>
         </div>
